@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Search, MapPin, Clock, Sparkles, X, Star, ArrowRight, Compass } from 'lucide-react';
+import { Search, MapPin, Clock, X, Star, Compass } from 'lucide-react';
 import { useLanguage } from '../../i18n/LanguageContext';
 
 interface AvailableToursSectionProps {
@@ -15,12 +15,11 @@ interface Tour {
   interestsAr: string[];
   interestsEn: string[];
   durationDays: number;
-  price: number;
   rating: number;
   image: string;
 }
 
-// Curated featured Egyptian tours for public discovery on the landing page.
+// Curated featured Egyptian tours — display only (no pricing), shown to landing visitors.
 const TOURS: Tour[] = [
   {
     id: 'tour_giza_classic',
@@ -31,7 +30,6 @@ const TOURS: Tour[] = [
     interestsAr: ['آثار فرعونية', 'متاحف', 'تسوق'],
     interestsEn: ['Pharaonic', 'Museums', 'Shopping'],
     durationDays: 3,
-    price: 6500,
     rating: 4.9,
     image: 'https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=800&q=80',
   },
@@ -44,48 +42,8 @@ const TOURS: Tour[] = [
     interestsAr: ['آثار فرعونية', 'معابد', 'مقابر ملكية'],
     interestsEn: ['Pharaonic', 'Temples', 'Royal Tombs'],
     durationDays: 4,
-    price: 8200,
     rating: 4.8,
     image: 'https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 'tour_aswan_nubia',
-    titleAr: 'أسوان والنوبة ومعبد فيلة',
-    titleEn: 'Aswan, Nubia & Philae Temple',
-    locationAr: 'أسوان',
-    locationEn: 'Aswan',
-    interestsAr: ['ثقافة نوبية', 'إبحار في النيل', 'معابد'],
-    interestsEn: ['Nubian Culture', 'Nile Sailing', 'Temples'],
-    durationDays: 3,
-    price: 5900,
-    rating: 4.7,
-    image: 'https://images.unsplash.com/photo-1568322445389-f64ac2515020?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 'tour_alexandria_coast',
-    titleAr: 'الإسكندرية وقلعة قايتباي',
-    titleEn: 'Alexandria & Qaitbay Citadel',
-    locationAr: 'الإسكندرية',
-    locationEn: 'Alexandria',
-    interestsAr: ['آثار يونانية', 'ساحل البحر', 'مطاعم بحرية'],
-    interestsEn: ['Greco-Roman', 'Coastal', 'Seafood'],
-    durationDays: 2,
-    price: 4200,
-    rating: 4.6,
-    image: 'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 'tour_abusimbel',
-    titleAr: 'أبو سمبل ومعابد النوبة العظمى',
-    titleEn: 'Abu Simbel & Great Nubian Temples',
-    locationAr: 'أسوان وأبو سمبل',
-    locationEn: 'Aswan & Abu Simbel',
-    interestsAr: ['آثار فرعونية', 'معابد كبرى', 'تصوير'],
-    interestsEn: ['Pharaonic', 'Grand Temples', 'Photography'],
-    durationDays: 3,
-    price: 7400,
-    rating: 4.9,
-    image: 'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=800&q=80',
   },
   {
     id: 'tour_redsea_relax',
@@ -96,39 +54,12 @@ const TOURS: Tour[] = [
     interestsAr: ['غوص', 'شواطئ', 'استرخاء'],
     interestsEn: ['Diving', 'Beaches', 'Relaxation'],
     durationDays: 4,
-    price: 5600,
     rating: 4.7,
     image: 'https://images.unsplash.com/photo-1583212292454-1fe6229c8ef9?auto=format&fit=crop&w=800&q=80',
   },
-  {
-    id: 'tour_spiritual_oasis',
-    titleAr: 'سيوة والواحات الروحية',
-    titleEn: 'Siwa Oasis & Spiritual Desert Retreat',
-    locationAr: 'سيوة',
-    locationEn: 'Siwa',
-    interestsAr: ['صحراء', 'ينابيع حارة', 'مغامرة'],
-    interestsEn: ['Desert', 'Hot Springs', 'Adventure'],
-    durationDays: 3,
-    price: 6100,
-    rating: 4.5,
-    image: 'https://images.unsplash.com/photo-1542317854-ec92cd7c0195?auto=format&fit=crop&w=800&q=80',
-  },
-  {
-    id: 'tour_coptic_islamic',
-    titleAr: 'القاهرة القبطية والإسلامية',
-    titleEn: 'Coptic & Islamic Cairo Heritage',
-    locationAr: 'القاهرة القديمة',
-    locationEn: 'Old Cairo',
-    interestsAr: ['آثار إسلامية', 'آثار قبطية', 'مساجد'],
-    interestsEn: ['Islamic', 'Coptic', 'Mosques'],
-    durationDays: 2,
-    price: 3800,
-    rating: 4.6,
-    image: 'https://images.unsplash.com/photo-1572252009286-268acec5ca0a?auto=format&fit=crop&w=800&q=80',
-  },
 ];
 
-export const AvailableToursSection: React.FC<AvailableToursSectionProps> = ({ onNavigate }) => {
+export const AvailableToursSection: React.FC<AvailableToursSectionProps> = ({ onNavigate: _onNavigate }) => {
   const { isRtl } = useLanguage();
   const [query, setQuery] = useState('');
 
@@ -155,12 +86,12 @@ export const AvailableToursSection: React.FC<AvailableToursSectionProps> = ({ on
             <span>{isRtl ? 'استكشف البرامج السياحية المتاحة' : 'Explore Available Tours'}</span>
           </div>
           <h2 className="mt-3 text-3xl sm:text-4xl font-black text-slate-950 dark:text-white tracking-tight">
-            {isRtl ? 'ابحث عن جولتك بالوجهة أو الاهتمام' : 'Find Your Tour by Destination or Interest'}
+            {isRtl ? 'شكل البرامج السياحية في TOURVIA' : 'How TOURVIA Tour Programs Look'}
           </h2>
           <p className="mt-3 text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
             {isRtl
-              ? 'صفّ برامجنا السياحية المعتمدة في مصر حسب الموقع أو نوع النشاط الذي تفضله.'
-              : 'Browse our verified Egyptian tour programs by location or the activity you love.'}
+              ? 'استعرض نماذج من البرامج السياحية المعتمدة في مصر حسب الموقع أو نوع النشاط — للعرض فقط.'
+              : 'Browse sample verified Egyptian tour programs by location or interest — for display only.'}
           </p>
         </div>
 
@@ -189,14 +120,14 @@ export const AvailableToursSection: React.FC<AvailableToursSectionProps> = ({ on
           {/* Result count */}
           <p className="mt-3 text-center text-xs font-bold text-slate-500 dark:text-slate-400">
             {isRtl
-              ? `${filteredTours.length} برنامج سياحي متاح`
-              : `${filteredTours.length} tour${filteredTours.length === 1 ? '' : 's'} available`}
+              ? `${filteredTours.length} برنامج سياحي للعرض`
+              : `${filteredTours.length} tour${filteredTours.length === 1 ? '' : 's'} on display`}
           </p>
         </div>
 
         {/* Tours Grid */}
         {filteredTours.length > 0 ? (
-          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {filteredTours.map((tour) => (
               <article
                 key={tour.id}
@@ -221,7 +152,7 @@ export const AvailableToursSection: React.FC<AvailableToursSectionProps> = ({ on
                   </span>
                 </div>
 
-                {/* Body */}
+                {/* Body — display only, no pricing or purchase actions */}
                 <div className="flex flex-1 flex-col p-4">
                   <div className="flex items-center gap-1.5 text-xs font-bold text-amber-600 dark:text-amber-400">
                     <MapPin className="h-3.5 w-3.5" />
@@ -241,27 +172,6 @@ export const AvailableToursSection: React.FC<AvailableToursSectionProps> = ({ on
                         {interest}
                       </span>
                     ))}
-                  </div>
-
-                  {/* Footer: price + CTA */}
-                  <div className="mt-auto flex items-center justify-between pt-4">
-                    <div>
-                      <span className="text-base font-black text-slate-950 dark:text-white">
-                        {tour.price.toLocaleString()} EGP
-                      </span>
-                      <span className="block text-[10px] font-bold text-slate-400">
-                        {isRtl ? 'للفرد' : 'per person'}
-                      </span>
-                    </div>
-                    <button
-                      type="button"
-                      onClick={() => onNavigate('auth_register')}
-                      className="flex items-center gap-1 rounded-xl bg-amber-500 px-3 py-2 text-[11px] font-black text-slate-950 shadow-sm transition-colors hover:bg-amber-400"
-                    >
-                      <Sparkles className="h-3.5 w-3.5" />
-                      <span>{isRtl ? 'ابدأ' : 'Start'}</span>
-                      <ArrowRight className={`h-3.5 w-3.5 ${isRtl ? 'rotate-180' : ''}`} />
-                    </button>
                   </div>
                 </div>
               </article>
