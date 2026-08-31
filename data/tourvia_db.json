@@ -38,7 +38,12 @@
     "usr_admin_master": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87",
     "usr_guide_tamer": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87"
   },
-  "sessions": {},
+  "sessions": {
+    "sess_f3c3e561a858b28e1b409f8d43968162": {
+      "userId": "usr_admin_mohamed",
+      "expiresAt": 1790774329755
+    }
+  },
   "trips": [],
   "tripVersions": [],
   "inquiries": [],
@@ -290,6 +295,14 @@
       "action": "TRIP_PUBLISHED",
       "details": "Trip Egypt Pharaohs & Nile Odyssey (5 Days) published with public token.",
       "timestamp": "2026-08-24T10:59:21.454Z"
+    },
+    {
+      "id": "log_l_a3947e677263c23d56472b115987b0e2",
+      "userId": "usr_admin_mohamed",
+      "userEmail": "mohamedseo2002@gmail.com",
+      "action": "USER_LOGIN",
+      "details": "User logged in from 10.12.0.40.",
+      "timestamp": "2026-08-31T13:18:49.756Z"
     }
   ],
   "campaigns": [
