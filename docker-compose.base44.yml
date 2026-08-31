@@ -1,0 +1,21 @@
+services:
+  app:
+    image: node:22-bookworm-slim
+    container_name: tourvia-app
+    working_dir: /app
+    env_file:
+      - ./.env.base44-defaults
+      - /run/base44/app.env
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - ./:/app
+      - app_node_modules:/app/node_modules
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install --no-audit --no-fund && npm run dev"
+    restart: unless-stopped
+
+volumes:
+  app_node_modules:

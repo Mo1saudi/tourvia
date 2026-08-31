@@ -31,30 +31,6 @@
       "role": "admin",
       "createdAt": "2026-08-31T10:59:21.453Z",
       "updatedAt": "2026-08-31T10:59:21.453Z"
-    },
-    {
-      "id": "usr_guide_tamer",
-      "name": "Tamer El-Masry (تامر المصري)",
-      "email": "tamer.guide@tourvia.app",
-      "phone": "+201012345678",
-      "accountType": "guide",
-      "workingLanguages": [
-        "ar",
-        "en",
-        "de",
-        "fr"
-      ],
-      "verificationStatus": "VERIFIED",
-      "verificationNote": "Official Egypt Tourism Ministry License #9482 verified",
-      "proofDocumentUrl": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80",
-      "recoveryCode": "TRV-7782-9901-EG",
-      "role": "user",
-      "companyName": "Nile Wonders Travel & Tours",
-      "companyTagline": "Bespoke Historical & Luxury Experiences in Egypt",
-      "companyBrandColor": "#f59e0b",
-      "companyLogoUrl": "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=200&q=80",
-      "createdAt": "2026-08-01T10:59:21.453Z",
-      "updatedAt": "2026-08-31T10:59:21.453Z"
     }
   ],
   "userPins": {
@@ -63,766 +39,10 @@
     "usr_guide_tamer": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87"
   },
   "sessions": {},
-  "trips": [
-    {
-      "id": "trip_egypt_classic_5d",
-      "guideId": "usr_guide_tamer",
-      "guideName": "Tamer El-Masry (تامر المصري)",
-      "guidePhone": "+201012345678",
-      "guideEmail": "tamer.guide@tourvia.app",
-      "name": "Egypt Pharaohs & Nile Odyssey (5 Days / 4 Nights)",
-      "summary": "A breathtaking journey exploring the Great Pyramids of Giza, the Grand Egyptian Museum, Luxor Karnak & Valley of the Kings, and Alexandria Mediterranean treasures.",
-      "durationDays": 5,
-      "nightsCount": 4,
-      "travelerType": "family",
-      "travelersCount": 4,
-      "budgetTier": "luxury",
-      "travelPace": "moderate",
-      "walkingPreference": "moderate",
-      "interests": [
-        "History",
-        "Ancient Temples",
-        "Nile Views",
-        "Culinary & Local Markets"
-      ],
-      "restrictions": [
-        "Vegetarian meal options",
-        "Wheelchair accessible vehicle required"
-      ],
-      "notes": "Internal guide note: Private Egyptologist VIP entrance arranged at Giza plateau at 8:00 AM before general public.",
-      "status": "published",
-      "isArchived": false,
-      "coverImage": "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=1200&q=80",
-      "destinations": [
-        {
-          "id": "dest_cairo",
-          "name": "Cairo & Giza",
-          "nameAr": "القاهرة والجيزة",
-          "coordinates": {
-            "lat": 30.0444,
-            "lng": 31.2357
-          },
-          "description": "The historic capital of Egypt and home to the Great Pyramids of Giza, the Sphinx, and world-class museums.",
-          "imageUrl": "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=600&q=80",
-          "order": 1,
-          "arrivalDay": 1,
-          "departureDay": 2
-        },
-        {
-          "id": "dest_luxor",
-          "name": "Luxor (Ancient Thebes)",
-          "nameAr": "الأقصر (طيبة القديمة)",
-          "coordinates": {
-            "lat": 25.6872,
-            "lng": 32.6396
-          },
-          "description": "The world greatest open-air museum, featuring Karnak Temple, Luxor Temple, and the Valley of the Kings.",
-          "imageUrl": "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=600&q=80",
-          "order": 2,
-          "arrivalDay": 3,
-          "departureDay": 4
-        },
-        {
-          "id": "dest_alex",
-          "name": "Alexandria",
-          "nameAr": "الإسكندرية عروس البحر المتوسط",
-          "coordinates": {
-            "lat": 31.2001,
-            "lng": 29.9187
-          },
-          "description": "The Mediterranean jewel of Egypt, boasting the Qaitbay Citadel, Bibliotheca Alexandrina, and fresh seafood.",
-          "imageUrl": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80",
-          "order": 3,
-          "arrivalDay": 5,
-          "departureDay": 5
-        }
-      ],
-      "days": [
-        {
-          "dayNumber": 1,
-          "title": "Arrival & The Great Pyramids of Giza & The Sphinx",
-          "destinationId": "dest_cairo",
-          "destinationName": "Cairo & Giza",
-          "stations": [
-            {
-              "id": "st_1_1",
-              "dayNumber": 1,
-              "name": "VIP Airport Meet & Hotel Check-in",
-              "nameAr": "الاستقبال في المطار والتسكين بالفندق",
-              "description": "Private arrival transfer in Mercedes luxury van to Mena House Hotel overlooking the Pyramids.",
-              "startTime": "09:00",
-              "endTime": "10:30",
-              "durationMinutes": 90,
-              "activityType": "transit",
-              "order": 1
-            },
-            {
-              "id": "st_1_2",
-              "dayNumber": 1,
-              "name": "The Great Pyramid of Khufu & Panoramic View",
-              "nameAr": "أهرامات الجيزة البانورامية وتمثال أبو الهول",
-              "description": "Guided exploration of Khufu, Khafre, Menkaure pyramids with private desert horse carriage ride.",
-              "startTime": "11:00",
-              "endTime": "14:00",
-              "durationMinutes": 180,
-              "activityType": "sightseeing",
-              "order": 2
-            },
-            {
-              "id": "st_1_3",
-              "dayNumber": 1,
-              "name": "Traditional Egyptian Lunch overlooking the Sphinx",
-              "nameAr": "غداء مصري تقليدي بإطلالة على الأهرامات",
-              "description": "Authentic dining experiencing grilled kofta, fresh bread, mezzes, and mango juice.",
-              "startTime": "14:30",
-              "endTime": "16:00",
-              "durationMinutes": 90,
-              "activityType": "culinary",
-              "order": 3
-            }
-          ],
-          "mealsIncluded": {
-            "breakfast": true,
-            "lunch": true,
-            "dinner": false
-          },
-          "notes": "Please bring sunglasses, hat, and comfortable walking shoes."
-        },
-        {
-          "dayNumber": 2,
-          "title": "Grand Egyptian Museum & Historic Khan El Khalili Bazaar",
-          "destinationId": "dest_cairo",
-          "destinationName": "Cairo & Giza",
-          "stations": [
-            {
-              "id": "st_2_1",
-              "dayNumber": 2,
-              "name": "Grand Egyptian Museum (GEM) Masterpieces",
-              "nameAr": "المتحف المصري الكبير ومقتنيات توت عنخ آمون",
-              "description": "Marvel at the full Tutankhamun collection, majestic atrium statues, and grand staircase.",
-              "startTime": "09:30",
-              "endTime": "13:00",
-              "durationMinutes": 210,
-              "activityType": "museum",
-              "order": 1
-            },
-            {
-              "id": "st_2_2",
-              "dayNumber": 2,
-              "name": "Khan El Khalili Bazaar & Al-Fishawy Historic Cafe",
-              "nameAr": "خان الخليلي ومقهى الفيشاوي التاريخي",
-              "description": "Walking tour through 14th-century souks, spices, alabaster lamps, and mint tea.",
-              "startTime": "15:00",
-              "endTime": "18:00",
-              "durationMinutes": 180,
-              "activityType": "shopping",
-              "order": 2
-            }
-          ],
-          "mealsIncluded": {
-            "breakfast": true,
-            "lunch": true,
-            "dinner": true
-          }
-        },
-        {
-          "dayNumber": 3,
-          "title": "Flight to Luxor & Karnak Temple Complex",
-          "destinationId": "dest_luxor",
-          "destinationName": "Luxor (Ancient Thebes)",
-          "stations": [
-            {
-              "id": "st_3_1",
-              "dayNumber": 3,
-              "name": "Morning Flight Cairo to Luxor & Check-in",
-              "nameAr": "رحلة الطيران إلى الأقصَر والتسكين",
-              "description": "1-hour flight to Luxor and check-in at historic Winter Palace hotel.",
-              "startTime": "07:00",
-              "endTime": "09:30",
-              "durationMinutes": 150,
-              "activityType": "transit",
-              "order": 1
-            },
-            {
-              "id": "st_3_2",
-              "dayNumber": 3,
-              "name": "Karnak Temple & Hypostyle Hall",
-              "nameAr": "معبد الكرنك وصالة الأعمدة الكبرى",
-              "description": "Walking through 134 colossal stone columns, sacred lake, and avenue of sphinxes.",
-              "startTime": "10:30",
-              "endTime": "13:30",
-              "durationMinutes": 180,
-              "activityType": "historical",
-              "order": 2
-            },
-            {
-              "id": "st_3_3",
-              "dayNumber": 3,
-              "name": "Sunset Felucca Sail on the River Nile",
-              "nameAr": "جولة فلوكة شراعية في نيل الأقصر وقت الغروب",
-              "description": "Peaceful traditional sailing with local music and fresh Egyptian tea.",
-              "startTime": "16:30",
-              "endTime": "18:00",
-              "durationMinutes": 90,
-              "activityType": "relaxation",
-              "order": 3
-            }
-          ],
-          "mealsIncluded": {
-            "breakfast": true,
-            "lunch": true,
-            "dinner": true
-          }
-        },
-        {
-          "dayNumber": 4,
-          "title": "Valley of the Kings, Hatshepsut Temple & Colossi of Memnon",
-          "destinationId": "dest_luxor",
-          "destinationName": "Luxor (Ancient Thebes)",
-          "stations": [
-            {
-              "id": "st_4_1",
-              "dayNumber": 4,
-              "name": "Optional Sunrise Hot Air Balloon over Luxor",
-              "nameAr": "منطاد الهواء الساخن وقت شروق الشمس (اختياري)",
-              "description": "Panoramic bird-eye view of ancient temples and the Nile at dawn.",
-              "startTime": "05:30",
-              "endTime": "07:30",
-              "durationMinutes": 120,
-              "activityType": "adventure",
-              "order": 1
-            },
-            {
-              "id": "st_4_2",
-              "dayNumber": 4,
-              "name": "Royal Tombs in the Valley of the Kings",
-              "nameAr": "مقابر وادي الملوك ومعبد حتشبسوت بالدير البحري",
-              "description": "Deep underground tombs with preserved vibrant ancient Egyptian murals and hieroglyphics.",
-              "startTime": "08:30",
-              "endTime": "12:30",
-              "durationMinutes": 240,
-              "activityType": "historical",
-              "order": 2
-            }
-          ],
-          "mealsIncluded": {
-            "breakfast": true,
-            "lunch": true,
-            "dinner": false
-          }
-        },
-        {
-          "dayNumber": 5,
-          "title": "Alexandria Mediterranean Excursion & Departure",
-          "destinationId": "dest_alex",
-          "destinationName": "Alexandria",
-          "stations": [
-            {
-              "id": "st_5_1",
-              "dayNumber": 5,
-              "name": "Qaitbay Citadel & Sea Corniche Walk",
-              "nameAr": "قلعة قايتباي وكورنيش الإسكندرية",
-              "description": "15th-century fortress erected on the site of the ancient Pharos Lighthouse.",
-              "startTime": "10:00",
-              "endTime": "12:30",
-              "durationMinutes": 150,
-              "activityType": "sightseeing",
-              "order": 1
-            },
-            {
-              "id": "st_5_2",
-              "dayNumber": 5,
-              "name": "Bibliotheca Alexandrina & Seafood Farewell Lunch",
-              "nameAr": "مكتبة الإسكندرية وغداء وداعي للأسماك الطازجة",
-              "description": "Visiting the world-famous modern library and enjoying fresh Mediterranean catch with seaside views.",
-              "startTime": "13:00",
-              "endTime": "16:00",
-              "durationMinutes": 180,
-              "activityType": "culinary",
-              "order": 2
-            }
-          ],
-          "mealsIncluded": {
-            "breakfast": true,
-            "lunch": true,
-            "dinner": false
-          }
-        }
-      ],
-      "transportation": [
-        {
-          "id": "tr_1",
-          "fromDestination": "Cairo & Giza",
-          "toDestination": "Luxor (Ancient Thebes)",
-          "type": "flight",
-          "departureTime": "07:00",
-          "meetingPoint": "Cairo Airport Terminal 3",
-          "distanceKm": 650,
-          "estimatedDurationMinutes": 65,
-          "estimatedCost": 3200
-        },
-        {
-          "id": "tr_2",
-          "fromDestination": "Luxor (Ancient Thebes)",
-          "toDestination": "Alexandria",
-          "type": "flight",
-          "departureTime": "18:00",
-          "meetingPoint": "Luxor Airport",
-          "distanceKm": 850,
-          "estimatedDurationMinutes": 120,
-          "estimatedCost": 3800
-        },
-        {
-          "id": "tr_3",
-          "fromDestination": "Cairo & Giza",
-          "toDestination": "Alexandria",
-          "type": "car",
-          "departureTime": "08:00",
-          "meetingPoint": "Hotel Lobby",
-          "distanceKm": 220,
-          "estimatedDurationMinutes": 150,
-          "estimatedCost": 1800
-        }
-      ],
-      "costs": {
-        "accommodation": 14000,
-        "transportation": 8800,
-        "activities": 6200,
-        "guideFee": 7500,
-        "food": 4500,
-        "otherCosts": 2000,
-        "totalCost": 43000,
-        "sellingPrice": 58000,
-        "calculatedProfit": 15000,
-        "profitMarginPercent": 25.86,
-        "currency": "EGP"
-      },
-      "publicToken": "tv_demo_egypt_explorer_2026",
-      "publicLinkUrl": "/trip/public/tv_demo_egypt_explorer_2026",
-      "isPublicPriceVisible": true,
-      "publicNotes": "Includes airport meet-and-assist, deluxe private air-conditioned vehicle, licensed Egyptologist guide, all monument entry tickets, and daily breakfast & lunches.",
-      "inclusions": [
-        "Private licensed expert Egyptologist guide",
-        "VIP air-conditioned private vehicle throughout",
-        "All entrance fees to listed sites and museums",
-        "Domestic flights (Cairo - Luxor - Cairo)",
-        "Nile Felucca sailing ride",
-        "All breakfasts and highlighted authentic lunches",
-        "Mineral water and refreshing wipes during tours"
-      ],
-      "exclusions": [
-        "International flights to/from Egypt",
-        "Entry inside the Great Pyramid burial chamber (optional ticket)",
-        "Sunrise Hot Air Balloon ride in Luxor ($75 optional)",
-        "Personal tipping for drivers & luggage handlers"
-      ],
-      "currentVersion": 1,
-      "createdAt": "2026-08-24T10:59:21.453Z",
-      "updatedAt": "2026-08-31T10:59:21.453Z"
-    }
-  ],
-  "tripVersions": [
-    {
-      "id": "ver_1",
-      "tripId": "trip_egypt_classic_5d",
-      "versionNumber": 1,
-      "changeSummary": "Initial verified published version",
-      "createdAt": "2026-08-24T10:59:21.453Z",
-      "createdBy": "usr_guide_tamer",
-      "snapshot": {
-        "id": "trip_egypt_classic_5d",
-        "guideId": "usr_guide_tamer",
-        "guideName": "Tamer El-Masry (تامر المصري)",
-        "guidePhone": "+201012345678",
-        "guideEmail": "tamer.guide@tourvia.app",
-        "name": "Egypt Pharaohs & Nile Odyssey (5 Days / 4 Nights)",
-        "summary": "A breathtaking journey exploring the Great Pyramids of Giza, the Grand Egyptian Museum, Luxor Karnak & Valley of the Kings, and Alexandria Mediterranean treasures.",
-        "durationDays": 5,
-        "nightsCount": 4,
-        "travelerType": "family",
-        "travelersCount": 4,
-        "budgetTier": "luxury",
-        "travelPace": "moderate",
-        "walkingPreference": "moderate",
-        "interests": [
-          "History",
-          "Ancient Temples",
-          "Nile Views",
-          "Culinary & Local Markets"
-        ],
-        "restrictions": [
-          "Vegetarian meal options",
-          "Wheelchair accessible vehicle required"
-        ],
-        "notes": "Internal guide note: Private Egyptologist VIP entrance arranged at Giza plateau at 8:00 AM before general public.",
-        "status": "published",
-        "isArchived": false,
-        "coverImage": "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=1200&q=80",
-        "destinations": [
-          {
-            "id": "dest_cairo",
-            "name": "Cairo & Giza",
-            "nameAr": "القاهرة والجيزة",
-            "coordinates": {
-              "lat": 30.0444,
-              "lng": 31.2357
-            },
-            "description": "The historic capital of Egypt and home to the Great Pyramids of Giza, the Sphinx, and world-class museums.",
-            "imageUrl": "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=600&q=80",
-            "order": 1,
-            "arrivalDay": 1,
-            "departureDay": 2
-          },
-          {
-            "id": "dest_luxor",
-            "name": "Luxor (Ancient Thebes)",
-            "nameAr": "الأقصر (طيبة القديمة)",
-            "coordinates": {
-              "lat": 25.6872,
-              "lng": 32.6396
-            },
-            "description": "The world greatest open-air museum, featuring Karnak Temple, Luxor Temple, and the Valley of the Kings.",
-            "imageUrl": "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=600&q=80",
-            "order": 2,
-            "arrivalDay": 3,
-            "departureDay": 4
-          },
-          {
-            "id": "dest_alex",
-            "name": "Alexandria",
-            "nameAr": "الإسكندرية عروس البحر المتوسط",
-            "coordinates": {
-              "lat": 31.2001,
-              "lng": 29.9187
-            },
-            "description": "The Mediterranean jewel of Egypt, boasting the Qaitbay Citadel, Bibliotheca Alexandrina, and fresh seafood.",
-            "imageUrl": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80",
-            "order": 3,
-            "arrivalDay": 5,
-            "departureDay": 5
-          }
-        ],
-        "days": [
-          {
-            "dayNumber": 1,
-            "title": "Arrival & The Great Pyramids of Giza & The Sphinx",
-            "destinationId": "dest_cairo",
-            "destinationName": "Cairo & Giza",
-            "stations": [
-              {
-                "id": "st_1_1",
-                "dayNumber": 1,
-                "name": "VIP Airport Meet & Hotel Check-in",
-                "nameAr": "الاستقبال في المطار والتسكين بالفندق",
-                "description": "Private arrival transfer in Mercedes luxury van to Mena House Hotel overlooking the Pyramids.",
-                "startTime": "09:00",
-                "endTime": "10:30",
-                "durationMinutes": 90,
-                "activityType": "transit",
-                "order": 1
-              },
-              {
-                "id": "st_1_2",
-                "dayNumber": 1,
-                "name": "The Great Pyramid of Khufu & Panoramic View",
-                "nameAr": "أهرامات الجيزة البانورامية وتمثال أبو الهول",
-                "description": "Guided exploration of Khufu, Khafre, Menkaure pyramids with private desert horse carriage ride.",
-                "startTime": "11:00",
-                "endTime": "14:00",
-                "durationMinutes": 180,
-                "activityType": "sightseeing",
-                "order": 2
-              },
-              {
-                "id": "st_1_3",
-                "dayNumber": 1,
-                "name": "Traditional Egyptian Lunch overlooking the Sphinx",
-                "nameAr": "غداء مصري تقليدي بإطلالة على الأهرامات",
-                "description": "Authentic dining experiencing grilled kofta, fresh bread, mezzes, and mango juice.",
-                "startTime": "14:30",
-                "endTime": "16:00",
-                "durationMinutes": 90,
-                "activityType": "culinary",
-                "order": 3
-              }
-            ],
-            "mealsIncluded": {
-              "breakfast": true,
-              "lunch": true,
-              "dinner": false
-            },
-            "notes": "Please bring sunglasses, hat, and comfortable walking shoes."
-          },
-          {
-            "dayNumber": 2,
-            "title": "Grand Egyptian Museum & Historic Khan El Khalili Bazaar",
-            "destinationId": "dest_cairo",
-            "destinationName": "Cairo & Giza",
-            "stations": [
-              {
-                "id": "st_2_1",
-                "dayNumber": 2,
-                "name": "Grand Egyptian Museum (GEM) Masterpieces",
-                "nameAr": "المتحف المصري الكبير ومقتنيات توت عنخ آمون",
-                "description": "Marvel at the full Tutankhamun collection, majestic atrium statues, and grand staircase.",
-                "startTime": "09:30",
-                "endTime": "13:00",
-                "durationMinutes": 210,
-                "activityType": "museum",
-                "order": 1
-              },
-              {
-                "id": "st_2_2",
-                "dayNumber": 2,
-                "name": "Khan El Khalili Bazaar & Al-Fishawy Historic Cafe",
-                "nameAr": "خان الخليلي ومقهى الفيشاوي التاريخي",
-                "description": "Walking tour through 14th-century souks, spices, alabaster lamps, and mint tea.",
-                "startTime": "15:00",
-                "endTime": "18:00",
-                "durationMinutes": 180,
-                "activityType": "shopping",
-                "order": 2
-              }
-            ],
-            "mealsIncluded": {
-              "breakfast": true,
-              "lunch": true,
-              "dinner": true
-            }
-          },
-          {
-            "dayNumber": 3,
-            "title": "Flight to Luxor & Karnak Temple Complex",
-            "destinationId": "dest_luxor",
-            "destinationName": "Luxor (Ancient Thebes)",
-            "stations": [
-              {
-                "id": "st_3_1",
-                "dayNumber": 3,
-                "name": "Morning Flight Cairo to Luxor & Check-in",
-                "nameAr": "رحلة الطيران إلى الأقصَر والتسكين",
-                "description": "1-hour flight to Luxor and check-in at historic Winter Palace hotel.",
-                "startTime": "07:00",
-                "endTime": "09:30",
-                "durationMinutes": 150,
-                "activityType": "transit",
-                "order": 1
-              },
-              {
-                "id": "st_3_2",
-                "dayNumber": 3,
-                "name": "Karnak Temple & Hypostyle Hall",
-                "nameAr": "معبد الكرنك وصالة الأعمدة الكبرى",
-                "description": "Walking through 134 colossal stone columns, sacred lake, and avenue of sphinxes.",
-                "startTime": "10:30",
-                "endTime": "13:30",
-                "durationMinutes": 180,
-                "activityType": "historical",
-                "order": 2
-              },
-              {
-                "id": "st_3_3",
-                "dayNumber": 3,
-                "name": "Sunset Felucca Sail on the River Nile",
-                "nameAr": "جولة فلوكة شراعية في نيل الأقصر وقت الغروب",
-                "description": "Peaceful traditional sailing with local music and fresh Egyptian tea.",
-                "startTime": "16:30",
-                "endTime": "18:00",
-                "durationMinutes": 90,
-                "activityType": "relaxation",
-                "order": 3
-              }
-            ],
-            "mealsIncluded": {
-              "breakfast": true,
-              "lunch": true,
-              "dinner": true
-            }
-          },
-          {
-            "dayNumber": 4,
-            "title": "Valley of the Kings, Hatshepsut Temple & Colossi of Memnon",
-            "destinationId": "dest_luxor",
-            "destinationName": "Luxor (Ancient Thebes)",
-            "stations": [
-              {
-                "id": "st_4_1",
-                "dayNumber": 4,
-                "name": "Optional Sunrise Hot Air Balloon over Luxor",
-                "nameAr": "منطاد الهواء الساخن وقت شروق الشمس (اختياري)",
-                "description": "Panoramic bird-eye view of ancient temples and the Nile at dawn.",
-                "startTime": "05:30",
-                "endTime": "07:30",
-                "durationMinutes": 120,
-                "activityType": "adventure",
-                "order": 1
-              },
-              {
-                "id": "st_4_2",
-                "dayNumber": 4,
-                "name": "Royal Tombs in the Valley of the Kings",
-                "nameAr": "مقابر وادي الملوك ومعبد حتشبسوت بالدير البحري",
-                "description": "Deep underground tombs with preserved vibrant ancient Egyptian murals and hieroglyphics.",
-                "startTime": "08:30",
-                "endTime": "12:30",
-                "durationMinutes": 240,
-                "activityType": "historical",
-                "order": 2
-              }
-            ],
-            "mealsIncluded": {
-              "breakfast": true,
-              "lunch": true,
-              "dinner": false
-            }
-          },
-          {
-            "dayNumber": 5,
-            "title": "Alexandria Mediterranean Excursion & Departure",
-            "destinationId": "dest_alex",
-            "destinationName": "Alexandria",
-            "stations": [
-              {
-                "id": "st_5_1",
-                "dayNumber": 5,
-                "name": "Qaitbay Citadel & Sea Corniche Walk",
-                "nameAr": "قلعة قايتباي وكورنيش الإسكندرية",
-                "description": "15th-century fortress erected on the site of the ancient Pharos Lighthouse.",
-                "startTime": "10:00",
-                "endTime": "12:30",
-                "durationMinutes": 150,
-                "activityType": "sightseeing",
-                "order": 1
-              },
-              {
-                "id": "st_5_2",
-                "dayNumber": 5,
-                "name": "Bibliotheca Alexandrina & Seafood Farewell Lunch",
-                "nameAr": "مكتبة الإسكندرية وغداء وداعي للأسماك الطازجة",
-                "description": "Visiting the world-famous modern library and enjoying fresh Mediterranean catch with seaside views.",
-                "startTime": "13:00",
-                "endTime": "16:00",
-                "durationMinutes": 180,
-                "activityType": "culinary",
-                "order": 2
-              }
-            ],
-            "mealsIncluded": {
-              "breakfast": true,
-              "lunch": true,
-              "dinner": false
-            }
-          }
-        ],
-        "transportation": [
-          {
-            "id": "tr_1",
-            "fromDestination": "Cairo & Giza",
-            "toDestination": "Luxor (Ancient Thebes)",
-            "type": "flight",
-            "departureTime": "07:00",
-            "meetingPoint": "Cairo Airport Terminal 3",
-            "distanceKm": 650,
-            "estimatedDurationMinutes": 65,
-            "estimatedCost": 3200
-          },
-          {
-            "id": "tr_2",
-            "fromDestination": "Luxor (Ancient Thebes)",
-            "toDestination": "Alexandria",
-            "type": "flight",
-            "departureTime": "18:00",
-            "meetingPoint": "Luxor Airport",
-            "distanceKm": 850,
-            "estimatedDurationMinutes": 120,
-            "estimatedCost": 3800
-          },
-          {
-            "id": "tr_3",
-            "fromDestination": "Cairo & Giza",
-            "toDestination": "Alexandria",
-            "type": "car",
-            "departureTime": "08:00",
-            "meetingPoint": "Hotel Lobby",
-            "distanceKm": 220,
-            "estimatedDurationMinutes": 150,
-            "estimatedCost": 1800
-          }
-        ],
-        "costs": {
-          "accommodation": 14000,
-          "transportation": 8800,
-          "activities": 6200,
-          "guideFee": 7500,
-          "food": 4500,
-          "otherCosts": 2000,
-          "totalCost": 43000,
-          "sellingPrice": 58000,
-          "calculatedProfit": 15000,
-          "profitMarginPercent": 25.86,
-          "currency": "EGP"
-        },
-        "publicToken": "tv_demo_egypt_explorer_2026",
-        "publicLinkUrl": "/trip/public/tv_demo_egypt_explorer_2026",
-        "isPublicPriceVisible": true,
-        "publicNotes": "Includes airport meet-and-assist, deluxe private air-conditioned vehicle, licensed Egyptologist guide, all monument entry tickets, and daily breakfast & lunches.",
-        "inclusions": [
-          "Private licensed expert Egyptologist guide",
-          "VIP air-conditioned private vehicle throughout",
-          "All entrance fees to listed sites and museums",
-          "Domestic flights (Cairo - Luxor - Cairo)",
-          "Nile Felucca sailing ride",
-          "All breakfasts and highlighted authentic lunches",
-          "Mineral water and refreshing wipes during tours"
-        ],
-        "exclusions": [
-          "International flights to/from Egypt",
-          "Entry inside the Great Pyramid burial chamber (optional ticket)",
-          "Sunrise Hot Air Balloon ride in Luxor ($75 optional)",
-          "Personal tipping for drivers & luggage handlers"
-        ],
-        "currentVersion": 1,
-        "createdAt": "2026-08-24T10:59:21.453Z",
-        "updatedAt": "2026-08-31T10:59:21.453Z"
-      }
-    }
-  ],
-  "inquiries": [
-    {
-      "id": "inq_1",
-      "tripId": "trip_egypt_classic_5d",
-      "tripName": "Egypt Pharaohs & Nile Odyssey (5 Days / 4 Nights)",
-      "guideId": "usr_guide_tamer",
-      "clientName": "Alexander Schmidt",
-      "clientEmail": "alex.schmidt@berlin-travel.de",
-      "clientPhone": "+491701234567",
-      "message": "Hello Tamer! We are a family of 4 from Germany looking to book this exact 5-day itinerary for November. Can we add a private dinner cruise in Cairo?",
-      "status": "NEW",
-      "createdAt": "2026-08-29T10:59:21.454Z"
-    }
-  ],
-  "reviews": [
-    {
-      "id": "rev_1",
-      "tripId": "trip_egypt_classic_5d",
-      "guideId": "usr_guide_tamer",
-      "clientName": "Sarah & Mark Jenkins",
-      "clientCountry": "United Kingdom",
-      "rating": 5,
-      "comment": "Tamer was the absolute highlight of our Egypt trip! His historical knowledge at Karnak and Giza was mesmerizing, and the timing of every stop was flawless. 10/10 recommended!",
-      "createdAt": "2026-08-26T10:59:21.454Z"
-    },
-    {
-      "id": "rev_2",
-      "tripId": "trip_egypt_classic_5d",
-      "guideId": "usr_guide_tamer",
-      "clientName": "Matteo Rossi",
-      "clientCountry": "Italy",
-      "rating": 5,
-      "comment": "Esperienza indimenticabile! Organizzazione impeccabile, veicolo comodo e spiegazioni chiare e coinvolgenti.",
-      "createdAt": "2026-08-19T10:59:21.454Z"
-    }
-  ],
+  "trips": [],
+  "tripVersions": [],
+  "inquiries": [],
+  "reviews": [],
   "notifications": [
     {
       "id": "notif_welcome",
@@ -1010,24 +230,7 @@
       "provider": "ADMIN_GRANT"
     }
   ],
-  "paymentRequests": [
-    {
-      "id": "pay_init_1",
-      "userId": "usr_guide_tamer",
-      "userEmail": "tamer.guide@tourvia.app",
-      "userName": "Tamer El-Masry (تامر المصري)",
-      "planId": "plan_pro",
-      "planName": "Professional Guide",
-      "amount": 750,
-      "currency": "EGP",
-      "paymentMethod": "INSTAPAY",
-      "transactionReference": "IPN-90281-TOURVIA",
-      "status": "APPROVED",
-      "adminNote": "InstaPay transfer confirmed on bank statement.",
-      "createdAt": "2026-08-01T10:59:21.454Z",
-      "resolvedAt": "2026-08-01T10:59:21.454Z"
-    }
-  ],
+  "paymentRequests": [],
   "promoCodes": [
     {
       "id": "promo_welcome50",
@@ -1054,39 +257,6 @@
     }
   ],
   "aiUsage": {
-    "usr_guide_tamer": {
-      "userId": "usr_guide_tamer",
-      "lifetimeUsed": 2,
-      "lifetimeLimit": 60,
-      "currentPlanAiLimit": 60,
-      "isUnlimited": false,
-      "history": [
-        {
-          "id": "gen_1",
-          "tripName": "Egypt Pharaohs & Nile Odyssey",
-          "destinations": [
-            "Cairo & Giza",
-            "Luxor",
-            "Alexandria"
-          ],
-          "durationDays": 5,
-          "timestamp": "2026-08-24T10:59:21.454Z",
-          "success": true
-        },
-        {
-          "id": "gen_2",
-          "tripName": "Red Sea & Sinai Adventure",
-          "destinations": [
-            "Sharm El Sheikh",
-            "Dahab",
-            "Saint Catherine"
-          ],
-          "durationDays": 4,
-          "timestamp": "2026-08-28T10:59:21.454Z",
-          "success": true
-        }
-      ]
-    },
     "usr_admin_mohamed": {
       "userId": "usr_admin_mohamed",
       "lifetimeUsed": 0,
@@ -1142,13 +312,395 @@
     "dayRegenConsumesQuota": false,
     "fallbackEnabled": true
   },
-  "publicLinkViews": {
-    "tv_demo_egypt_explorer_2026": {
-      "token": "tv_demo_egypt_explorer_2026",
-      "tripId": "trip_egypt_classic_5d",
-      "count": 50,
-      "firstViewAt": "2026-08-25T10:59:21.454Z",
-      "lastViewAt": "2026-08-31T11:06:59.330Z"
+  "publicLinkViews": {},
+  "homepageStats": {
+    "mode": "custom",
+    "usersCountOverride": 250,
+    "usersCountDisplay": "250+",
+    "usersCountLabelAr": "مرشد سياحي وشركة معتمدة",
+    "usersCountLabelEn": "Licensed Guides & Agencies",
+    "tripsCountOverride": 1200,
+    "tripsCountDisplay": "1,200+",
+    "tripsCountLabelAr": "برنامج سياحي مصمم بالذكاء الاصطناعي",
+    "tripsCountLabelEn": "AI Travel Itineraries Created",
+    "monumentsCountDisplay": "50+",
+    "monumentsLabelAr": "معلم أثري وموقع سياحي مصري",
+    "monumentsLabelEn": "Monuments & Archaeological Sites",
+    "satisfactionRateDisplay": "99.8%",
+    "satisfactionLabelAr": "دقة التوقيتات ورضا المسافرين",
+    "satisfactionLabelEn": "Timetable Precision & Rating",
+    "heroTaglineAr": "المنصة الذكية الرائدة لتصميم البرامج السياحية بالذكاء الاصطناعي للمرشدين والشركات السياحية في مصر",
+    "heroTaglineEn": "The Smart Operating System for Egyptian Tour Guides & Agencies",
+    "updatedAt": "2026-08-31T13:16:25.722Z"
+  },
+  "complianceRequirements": [
+    {
+      "id": "comp_req_license_validity",
+      "category": "GUIDE_REQUIREMENTS",
+      "categoryNameAr": "متطلبات ترخيص المرشد",
+      "title": "Valid Tourist Guide License from Ministry",
+      "titleAr": "حيازة ترخيص ساري لمزاولة الإرشاد السياحي من وزارة السياحة والآثار",
+      "legalBasis": "المادة (2) والمادة (4) من القانون رقم 121 لسنة 1983 ولائحته التنفيذية",
+      "description": "All users practicing professional tourist guiding must hold a valid, non-expired license issued by the Egyptian Ministry of Tourism and Antiquities.",
+      "descriptionAr": "يلزم لممارسة مهنة الإرشاد السياحي الحصول على ترخيص ساري من وزارة السياحة والآثار، وتجديده دورياً طبقاً للمواعيد المقررة.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "تم تطبيق نظام التحقق اليدوي الإداري مع تسجيل رقم الترخيص وتاريخ الانتهاء والجهة المصدرة.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Compliance Officer (Legal Readiness)",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_syndicate_membership",
+      "category": "GUIDE_REQUIREMENTS",
+      "categoryNameAr": "متطلبات ترخيص المرشد",
+      "title": "Tourist Guides Syndicate Membership",
+      "titleAr": "القيد بجداول نقابة المرشدين السياحيين المصرية وسريان العضوية",
+      "legalBasis": "المادة (5) والمادة (7) من القانون رقم 121 لسنة 1983 بشأن نقابة المرشدين السياحيين",
+      "description": "Proof of active registration with the Egyptian Tourist Guides Syndicate is required before granting professional guide status.",
+      "descriptionAr": "اشتراط التحقق من القيد بنقابة المرشدين وسريان بطاقة العضوية قبل منح صفة مرشد معتمد بالمنصة.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "حقل رقم القيد النقابي متاح بالمراجعة الإدارية مع فحص بطاقة النقابة.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Compliance Officer (Legal Readiness)",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_commercial_distinction",
+      "category": "GUIDE_REQUIREMENTS",
+      "categoryNameAr": "متطلبات ترخيص المرشد",
+      "title": "Separation between Individual Guides and Tourism Companies",
+      "titleAr": "الفصل بين المرشد السياحي الفردي وشركات السياحة (القانون 38 لسنة 1977)",
+      "legalBasis": "المادة (13) من القانون رقم 121 لسنة 1983 والقانون رقم 38 لسنة 1977 وتعديلاته",
+      "description": "Ensure individual guides do not represent themselves as licensed Class A/B/C tourism companies unless verified.",
+      "descriptionAr": "منع خلط الصفة المهنية للمرشد الفردي بصفة شركة سياحة مرخصة دون حيازة ترخيص شركة سياحة مستقل.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "تم إلزام تحديد نوع الكيان (مرشد فردي vs شركة سياحة) وحظر الادعاءات التجارية المضللة.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Compliance Officer (Legal Readiness)",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_verification_separation",
+      "category": "VERIFICATION_STATUS",
+      "categoryNameAr": "حالة التحقق المهني",
+      "title": "Separation of User Account from License Status",
+      "titleAr": "الفصل بين حساب المستخدم والتحقق المهني وصلاحية الترخيص",
+      "legalBasis": "معايير النزاهة الرقمية ومنع تضليل المستهلك وقانون حماية المستهلك رقم 181 لسنة 2018",
+      "description": "A new account creation never automatically grants professional guide status or verified badge.",
+      "descriptionAr": "لا يمنح تسجيل حساب جديد صفة مرشد مرخص أو شارة توثيق تلقائية، بل يتطلب مسار تدقيق إداري منفصل.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "مطبق بنية حالات: حساب جديد > بانتظار التحقق > مرشد تم التحقق من ترخيصه > منتهي > موقوف.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Lead Compliance Architect",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_no_fake_gov_api",
+      "category": "VERIFICATION_STATUS",
+      "categoryNameAr": "حالة التحقق المهني",
+      "title": "No Simulated or Fake Government Verification APIs",
+      "titleAr": "حظر محاكاة أو اصطناع واجهات ربط حكومية وهمية مع الوزارة أو النقابة",
+      "legalBasis": "الشفافية الرقمية ومكافحة التزوير والاحتيال المعلوماتي (القانون رقم 175 لسنة 2018)",
+      "description": "Never simulate fake Ministry or Syndicate APIs. Verification is explicitly labelled as manual admin review.",
+      "descriptionAr": "المنصة لا تصطنع أي ربط إلكتروني وهمي مع الوزارة أو النقابة، وتوضح بشفافية أن المراجعة إدارية يدوية.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "التدقيق يتم عبر لوحة تحكم الإدارة اليدوية ومراجعة الوثائق المرفوعة.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "QA Auditor",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_document_security",
+      "category": "DOCUMENTS_SECURITY",
+      "categoryNameAr": "أمن وسرية المستندات",
+      "title": "Secure Document Storage & No Public Indexing",
+      "titleAr": "تأمين وثائق التراخيص والبطاقات ومنع فهرستها أو إتاحتها للعامة",
+      "legalBasis": "قانون حماية البيانات الشخصية رقم 151 لسنة 2020 والمعايير الأمنية للأيزو 27001",
+      "description": "Uploaded licenses and IDs must not be accessible to public visitors, search engines, or unauthenticated users.",
+      "descriptionAr": "وثائق التراخيص والبطاقات الشخصية مشفرة ومحجوبة تمامًا عن العرض العام للمسافرين ومحركات البحث.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "مسارات العرض العام لا ترجع أي مستندات أو أرقام قومية، والوصول محصور للأدمن المصرح له فقط.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Security Engineer",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_retention_policy",
+      "category": "DOCUMENTS_SECURITY",
+      "categoryNameAr": "أمن وسرية المستندات",
+      "title": "Document Retention & Secure Purging Policy",
+      "titleAr": "سياسة الاحتفاظ بالمستندات والتخلص الآمن بعد انتهاء الحاجة القانونية",
+      "legalBasis": "المادة (4) من قانون حماية البيانات الشخصية رقم 151 لسنة 2020 (مبدأ الحد من مدة التخزين)",
+      "description": "Implement administrative retention controls to purge rejected or unverified documents after specified intervals.",
+      "descriptionAr": "توفير خيارات إدارية لحذف وثائق الحسابات المرفوضة بعد فترة السماح لتجنب الاحتفاظ غير المبرر.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "تم تضمين وظيفة التطهير الآمن وتعيين سياسة الاحتفاظ في لوحة تحكم الامتثال.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Data Protection Specialist",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_language_verification",
+      "category": "AUTHORIZED_LANGUAGES",
+      "categoryNameAr": "اللغات المرخص بها",
+      "title": "Distinction Between Claimed and Officially Authorized Languages",
+      "titleAr": "التمييز بين اللغات المدخلة ذاتيًا واللغات المرخص بها رسميًا للإرشاد",
+      "legalBasis": "قرارات وزارة السياحة والآثار بشأن شروط إضافة اللغات الأجنبية لترخيص الإرشاد",
+      "description": "A guide cannot claim official language qualification without documented proof of license language endorsement.",
+      "descriptionAr": "لا يحصل المرشد على علامة (لغة معتمدة بالترخيص) إلا للغات المثبتة في ترخيص الوزارة فقط.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "تم الفصل بين workingLanguages و authorizedLanguages في النموذج وقواعد البيانات والواجهة.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Compliance Architect",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_scope_enforcement",
+      "category": "PROFESSIONAL_SCOPE",
+      "categoryNameAr": "نطاق العمل والكيان",
+      "title": "Prohibition of Unverified Commercial & Official Claims",
+      "titleAr": "حظر الادعاءات المضللة مثل \"معتمد من الوزارة\" أو \"شريك النقابة\"",
+      "legalBasis": "المادة (66) من قانون حماية المستهلك رقم 181 لسنة 2018 بشأن الإعلانات والادعاءات المضللة",
+      "description": "Prohibit unauthorized promotional statements claiming official ministry endorsement or government partnership.",
+      "descriptionAr": "حظر كامل لاستخدام شعارات الوزارة أو النقابة أو ادعاء \"منصة حكومية معتمدة\" دون تفويض قانوني رسمي.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "تم تدقيق كافة النصوص والواجهات وإلزام صياغة \"تم التحقق من بيانات الترخيص بواسطة TOURVIA\".",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "QA & Legal Compliance Auditor",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_archaeological_sites",
+      "category": "ITINERARIES_SITES",
+      "categoryNameAr": "المواقع الأثرية والمتاحف",
+      "title": "Archaeological Sites Regulations & Photography Permits Awareness",
+      "titleAr": "إشعارات ضوابط المواقع الأثرية وتصاريح التصوير والفعاليات الخاصة",
+      "legalBasis": "قانون حماية الآثار رقم 117 لسنة 1983 وقرارات المجلس الأعلى للآثار بشأن التصوير والمزارات",
+      "description": "Provide clear notices that photography equipment, commercial filming, and special site access require official Supreme Council of Antiquities permits.",
+      "descriptionAr": "إبراز تنبيهات واضحة بأن التصوير التجاري أو الفعاليات الخاصة بالمواقع الأثرية تتطلب تصاريح مسبقة من المجلس الأعلى للآثار.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "تم تضمين بطاقات الإشعارات التنظيمية للمواقع الأثرية والتنبيه على الأسعار الرسمية.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Tourism Technology Consultant",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_ai_guardrails",
+      "category": "AI_CONTENT_SAFETY",
+      "categoryNameAr": "أمان المحتوى والذكاء الاصطناعي",
+      "title": "AI Planning Role & Human Professional Responsibility",
+      "titleAr": "تحديد دور الذكاء الاصطناعي كمساعد تخطيط وتأكيد المسؤولية البشرية",
+      "legalBasis": "إرشادات النزاهة وحوكمة الذكاء الاصطناعي الصادرة عن وزارة الاتصالات وتكنولوجيا المعلومات المصرية",
+      "description": "AI assists in generating itinerary drafts but never grants licenses, verifies credentials, or replaces human professional accuracy check.",
+      "descriptionAr": "الذكاء الاصطناعي لا يمنح تراخيص ولا يقر صحة تاريخية، والمسؤولية الكاملة عن دقة المعلومات تقع على المرشد.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "تم وضع نصوص إخلاء مسؤولية واضحة في أدوات الذكاء الاصطناعي وصفحات التوليد وعرض الرحلات.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "AI Governance Specialist",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_privacy_minimization",
+      "category": "PRIVACY_MINIMIZATION",
+      "categoryNameAr": "الخصوصية والحد الأدنى للبيانات",
+      "title": "Data Minimization & Public Profile Privacy",
+      "titleAr": "تطبيق مبدأ الحد الأدنى للبيانات وحماية خصوصية بيانات المسافرين والمرشدين",
+      "legalBasis": "قانون حماية البيانات الشخصية رقم 151 لسنة 2020",
+      "description": "Collect only necessary operating data; sanitize public view payloads to avoid exposing guide margins, costs, or national IDs.",
+      "descriptionAr": "تطهير الروابط العامة والواجهات الموجهة للجمهور من التكاليف الداخلية وهوامش الربح والأرقام القومية.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "مسار GET /api/public/trip/:token يقوم بتطهير البيانات بالكامل وحجب التكاليف الحساسة.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Data Protection Officer",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_complaint_mechanism",
+      "category": "COMPLAINTS_INTEGRITY",
+      "categoryNameAr": "الشكاوى والنزاهة",
+      "title": "Public Reporting & Misrepresentation Complaint Channel",
+      "titleAr": "آلية إبلاغ الجمهور والمسافرين عن الادعاءات المضللة أو انتحال الصفة",
+      "legalBasis": "قانون حماية المستهلك رقم 181 لسنة 2018 ومعايير جودة الخدمة السياحية",
+      "description": "Travelers and guides can report misleading information, false professional claims, or incorrect pricing.",
+      "descriptionAr": "توفير نموذج إبلاغ سريع ومسار إداري للتحقيق في الشكاوى واتخاذ إجراءات الإيقاف عند المخالفة.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "تم إنشاء مسار تقديم البلاغات ونظام معالجة الشكاوى الإداري الشامل.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "QA Auditor",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_auditability",
+      "category": "AUDIT_LOGS",
+      "categoryNameAr": "السجلات والتدقيق",
+      "title": "Immutable Administrative Action Logging",
+      "titleAr": "سجل تدقيق إداري غير قابل للتعديل لتوثيق وتعديل التراخيص",
+      "legalBasis": "قانون التوقيع الإلكتروني والمعاملات الرقمية رقم 15 لسنة 2004 ومعايير الرقابة الداخلية",
+      "description": "All verification, license rejection, role changes, and compliance updates are logged with timestamps and admin identity.",
+      "descriptionAr": "تسجيل تاريخي كامل ومؤمن لكل قرار توثيق أو رفض أو تعديل صلاحية مع هوية المسؤول ووقت العملية.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "سجل Audit Logs مفعل ومحمي على الخادم.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Security Auditor",
+      "riskLevel": "LOW"
+    },
+    {
+      "id": "comp_req_change_management",
+      "category": "REGULATORY_REVIEW",
+      "categoryNameAr": "المراجعة والتحديثات التنظيمية",
+      "title": "Regulatory Change Management & Legal Review Flagging",
+      "titleAr": "إدارة التحديثات التنظيمية ووسم المسائل الخاضعة للمراجعة القانونية المستمرة",
+      "legalBasis": "أفضل ممارسات الامتثال المؤسسي وإدارة المخاطر القانونية والتشريعية",
+      "description": "Maintain a living registry of tourism laws and ministerial decrees, flagging uncertain requirements for formal legal review.",
+      "descriptionAr": "سجل نشط لمتابعة القرارات الوزارية المستجدة ووسم الميزات غير المحسومة قانونياً بطلب مراجعة.",
+      "status": "COMPLIANT",
+      "statusAr": "مستوفى",
+      "evidenceNote": "تم إنشاء قسم التحديثات التنظيمية ولوحة تقرير الجاهزية للامتثال.",
+      "lastReviewedAt": "2026-08-30",
+      "reviewedBy": "Senior Compliance Architect",
+      "riskLevel": "LOW"
     }
+  ],
+  "regulatoryUpdates": [
+    {
+      "id": "reg_upd_law121",
+      "regulationName": "Tourist Guides Law No. 121 of 1983 & Executive Regulations",
+      "regulationNameAr": "القانون رقم 121 لسنة 1983 بشأن المرشدين السياحيين ونقابتهم ولائحته التنفيذية",
+      "source": "الجريدة الرسمية - جمهورية مصر العربية",
+      "publishedDate": "1983-08-01",
+      "effectiveDate": "1983-08-15",
+      "summaryAr": "تحديد شروط ممارسة مهنة الإرشاد السياحي، حظر مزاولة المهنة دون ترخيص من الوزارة والقيد بالنقابة، وحظر الجمع بين الإرشاد والأنشطة التجارية غير المصرح بها.",
+      "affectedPlatformFeature": "توثيق المرشدين، التحقق من التراخيص، شارات الاعتماد المهني، وتحديد نطاق العمل.",
+      "requiredSystemChange": "إلزام تسجيل رقم الترخيص ورقم القيد النقابي وفحص تاريخ الانتهاء بصورة دورية.",
+      "reviewStatus": "IMPLEMENTED",
+      "reviewedBy": "Senior Legal & Compliance Architect",
+      "notes": "المصدر التشريعي الأساسي لمهنة الإرشاد السياحي بمصر.",
+      "updatedAt": "2026-08-31T13:16:25.722Z"
+    },
+    {
+      "id": "reg_upd_eticketing",
+      "regulationName": "Ministry of Tourism Electronic Ticketing & Digital Payment Mandate",
+      "regulationNameAr": "قرارات وزارة السياحة والآثار بشأن التحول لمنظومة الدفع غير النقدي والتذاكر الإلكترونية للمزارات والمتاحف الأثرية",
+      "source": "وزارة السياحة والآثار - المجلس الأعلى للآثار",
+      "decreeNumber": "قرار المجلس الأعلى للآثار لسنة 2023/2024",
+      "publishedDate": "2023-06-01",
+      "effectiveDate": "2023-09-01",
+      "summaryAr": "إلغاء التعامل النقدي في شباك التذاكر بالمواقع والمتاحف الأثرية الكبرى (الأهرامات، الكرنك، وادي الملوك، المتحف المصري) والاعتماد الكامل على البطاقات البنكية والحجز الإلكتروني.",
+      "affectedPlatformFeature": "حساب تكاليف الرحلات، إشعارات تذاكر المزارات الأثرية بالبرامج.",
+      "requiredSystemChange": "إضافة إشعار للمسافر بأن الدفع في المواقع الأثرية بالبطاقات البنكية فقط أو عبر البوابة الرسمية للوزارة.",
+      "reviewStatus": "IMPLEMENTED",
+      "reviewedBy": "Tourism Technology Consultant",
+      "notes": "تم تحديث التنبيهات في بطاقات الوجهات والمحطات.",
+      "updatedAt": "2026-08-31T13:16:25.722Z"
+    },
+    {
+      "id": "reg_upd_photography",
+      "regulationName": "Supreme Council of Antiquities Photography & Filming Regulations",
+      "regulationNameAr": "ضوابط المجلس الأعلى للآثار بشأن تصوير الهواة والتصوير التجاري والسينمائي بالمتاحف والمواقع الأثرية",
+      "source": "المجلس الأعلى للآثار - وزارة السياحة والآثار",
+      "decreeNumber": "قرار مجلس إدارة المجلس الأعلى للآثار لسنة 2022",
+      "publishedDate": "2022-10-18",
+      "effectiveDate": "2022-11-01",
+      "summaryAr": "السماح بالتصوير الفوتوغرافي التذكاري الشخصي بالهواتف مجاناً، مع اشتراط تصاريح مسبقة ورسوم للمعدات الاحترافية، التصوير التجاري، الإعلانات، والدرون.",
+      "affectedPlatformFeature": "إشعارات محطات التصوير بالمزارات والبرامج السياحية.",
+      "requiredSystemChange": "عرض تنبيه تنظيمي بأن التصوير التجاري والسينمائي يتطلب تصاريح رسمية مسبقة من المجلس الأعلى للآثار.",
+      "reviewStatus": "IMPLEMENTED",
+      "reviewedBy": "Compliance Architect",
+      "notes": "تم تضمين الإشعار في تفاصيل المحطات الأثرية.",
+      "updatedAt": "2026-08-31T13:16:25.722Z"
+    },
+    {
+      "id": "reg_upd_privacy_law151",
+      "regulationName": "Data Protection Law No. 151 of 2020",
+      "regulationNameAr": "قانون حماية البيانات الشخصية رقم 151 لسنة 2020",
+      "source": "الجريدة الرسمية - جمهورية مصر العربية",
+      "decreeNumber": "القانون رقم 151 لسنة 2020",
+      "publishedDate": "2020-07-15",
+      "effectiveDate": "2020-10-15",
+      "summaryAr": "إلزام المنصات الرقمية بحماية البيانات الشخصية، تطبيق مبدأ الحد الأدنى للجمع، وتوفير حق التعديل والحذف وتأمين الوثائق الحساسة.",
+      "affectedPlatformFeature": "حفظ مستندات الهوية، سياسة الاحتفاظ، وحجب البيانات الحساسة عن العرض العام.",
+      "requiredSystemChange": "تطبيق التشفير والحجب على الأرقام القومية ومستندات التراخيص وسياسة التطهير الدوري.",
+      "reviewStatus": "IMPLEMENTED",
+      "reviewedBy": "Data Protection Specialist",
+      "notes": "مطبق على مستوى قاعدة البيانات ومسارات الخادم العامة.",
+      "updatedAt": "2026-08-31T13:16:25.722Z"
+    }
+  ],
+  "complaints": [],
+  "siteRegulatoryNotices": [
+    {
+      "siteKey": "giza_plateau",
+      "nameAr": "منطقة أهرامات الجيزة وأبو الهول",
+      "nameEn": "Giza Pyramids Plateau & Sphinx",
+      "category": "ARCHAEOLOGICAL_SITE",
+      "requiresOfficialLicensedGuide": true,
+      "photographyPermitNotice": "التصوير الشخصي بالموبايل متاح مجاناً. تصوير الفيديو التجاري أو استخدام معدات احترافية أو حامل ثلاثي يتطلب تصريحاً مسبقاً من المجلس الأعلى للآثار.",
+      "officialTicketingNotice": "يتم شراء التذاكر إلكترونياً أو بالبطاقات البنكية فقط عبر بوابة وزارة السياحة والآثار الرسمية (egymonuments.com). لا يُقبل الدفع النقدي.",
+      "openingHoursNotice": "تفتح المنطقة يومياً من 8:00 صباحاً حتى 5:00 مساءً (تغلق شبابيك التذاكر الساعة 4:00 مساءً).",
+      "officialSourceUrl": "https://egymonuments.com/locations/details/GizaPlateau"
+    },
+    {
+      "siteKey": "grand_egyptian_museum",
+      "nameAr": "المتحف المصري الكبير (GEM)",
+      "nameEn": "Grand Egyptian Museum (GEM)",
+      "category": "MUSEUM",
+      "requiresOfficialLicensedGuide": true,
+      "photographyPermitNotice": "التصوير بدون فلاش مسموح بالهواتف في المناطق المفتوحة والبهو العظيم. المعارض الحصرية والتصوير التجاري يخضع لضوابط إدارة المتحف.",
+      "officialTicketingNotice": "الحجز المسبق للتذاكر عبر موقع المتحف الرسمي (visit-gem.com) شرط أساسي للدخول للجولات التجريبية.",
+      "openingHoursNotice": "مواعيد الجولات اليومية من 9:00 صباحاً حتى 6:00 مساءً.",
+      "officialSourceUrl": "https://visit-gem.com"
+    },
+    {
+      "siteKey": "karnak_temple",
+      "nameAr": "مجمع معابد الكرنك (الأقصر)",
+      "nameEn": "Karnak Temple Complex (Luxor)",
+      "category": "ARCHAEOLOGICAL_SITE",
+      "requiresOfficialLicensedGuide": true,
+      "photographyPermitNotice": "ممنوع استخدام طائرات الدرون نهائياً. التصوير التجاري والسينمائي يتطلب موافقة أمنية وتصريحاً من وزارة السياحة والآثار.",
+      "officialTicketingNotice": "الدفع إلكتروني بالبطاقات البنكية عبر منافذ الدفع غير النقدي أو الموقع الرسمي.",
+      "openingHoursNotice": "تفتح المعابد يومياً من 6:00 صباحاً حتى 5:30 مساءً.",
+      "officialSourceUrl": "https://egymonuments.com/locations/details/KarnakTemple"
+    },
+    {
+      "siteKey": "valley_of_the_kings",
+      "nameAr": "وادي الملوك (البر الغربي - الأقصر)",
+      "nameEn": "Valley of the Kings (Luxor)",
+      "category": "ARCHAEOLOGICAL_SITE",
+      "requiresOfficialLicensedGuide": true,
+      "photographyPermitNotice": "التصوير بالهاتف مسموح داخل المقابر المفتوحة بدون فلاش. بعض المقابر الملكية الاستثنائية (كتوت عنخ آمون وسيتي الأول) تتطلب تذكرة خاصة إضافية.",
+      "officialTicketingNotice": "التذكرة العامة تشمل زيارة 3 مقابر ملكية من المقابر المفتوحة باليوم.",
+      "openingHoursNotice": "يومياً من 6:00 صباحاً حتى 5:00 مساءً.",
+      "officialSourceUrl": "https://egymonuments.com/locations/details/ValleyoftheKings"
+    },
+    {
+      "siteKey": "qaitbay_citadel",
+      "nameAr": "قلعة قايتباي (الإسكندرية)",
+      "nameEn": "Citadel of Qaitbay (Alexandria)",
+      "category": "ARCHAEOLOGICAL_SITE",
+      "requiresOfficialLicensedGuide": false,
+      "photographyPermitNotice": "التصوير التذكاري الشخصي متاح، وجلسات التصوير التجاري وعقود الفعاليات تتطلب موافقة المجلس الأعلى للآثار.",
+      "officialTicketingNotice": "الدفع الإلكتروني بالبطاقات البنكية بمنافذ القلعة.",
+      "openingHoursNotice": "يومياً من 9:00 صباحاً حتى 5:00 مساءً.",
+      "officialSourceUrl": "https://egymonuments.com/locations/details/QaitbayCitadel"
+    }
+  ],
+  "documentRetentionSettings": {
+    "maxDaysUnverifiedDocs": 90,
+    "autoPurgeRejectedDocs": true,
+    "lastPurgeRunAt": "2026-08-31T13:16:25.724Z"
   }
 }
