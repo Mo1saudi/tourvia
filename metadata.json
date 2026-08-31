@@ -1,0 +1,6 @@
+{
+  "name": "TOURVIA",
+  "description": "AI-Powered Tour Guide & Travel Program Builder SaaS Platform",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
