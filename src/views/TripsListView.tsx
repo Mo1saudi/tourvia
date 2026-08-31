@@ -21,6 +21,7 @@ import {
 import { useLanguage } from '../i18n/LanguageContext';
 import { api } from '../services/api';
 import { Trip, TripVersion } from '../types';
+import { DownloadPdfButton } from '../components/DownloadPdfButton';
 
 interface TripsListViewProps {
   onNavigate: (view: string, tripId?: string) => void;
@@ -330,6 +331,13 @@ export const TripsListView: React.FC<TripsListViewProps> = ({ onNavigate }) => {
                         </button>
                       </>
                     )}
+                    {/* PDF Download Button */}
+                    <DownloadPdfButton
+                      trip={trip}
+                      variant="icon"
+                      onSuccess={() => showToast('تم تنزيل ملف PDF للبرنامج السياحي بنجاح!')}
+                    />
+
                     <button
                       type="button"
                       onClick={() => onNavigate('presentation', trip.id)}

@@ -27,6 +27,7 @@ import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../i18n/LanguageContext';
 import { api } from '../services/api';
 import { Trip, TripDestination, TripDay, Station, TransportationLeg, TripCosts, WorkingLanguage } from '../types';
+import { DownloadPdfButton } from '../components/DownloadPdfButton';
 
 interface TripBuilderViewProps {
   tripId?: string | null;
@@ -327,6 +328,13 @@ export const TripBuilderView: React.FC<TripBuilderViewProps> = ({ tripId, onNavi
         </div>
 
         <div className="flex items-center gap-2">
+          {/* Download PDF */}
+          <DownloadPdfButton
+            trip={tripState}
+            guide={user}
+            variant="compact"
+            onSuccess={() => setSaveMessage('تم تحميل ملف PDF بنجاح!')}
+          />
           <button
             type="button"
             onClick={() => handleSaveTrip(false)}
@@ -1278,6 +1286,12 @@ export const TripBuilderView: React.FC<TripBuilderViewProps> = ({ tripId, onNavi
                   <Share2 className="h-3.5 w-3.5" />
                   <span>معاينة صفحة العميل</span>
                 </button>
+                <DownloadPdfButton
+                  trip={tripState}
+                  guide={user}
+                  variant="secondary"
+                  onSuccess={() => setSaveMessage('تم تحميل ملف PDF بنجاح!')}
+                />
                 <button
                   type="button"
                   onClick={() => handleNav('presentation', tripState.id)}

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <defs>
+    <linearGradient id="tv-navy" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0B1736"/>
+      <stop offset="100%" stop-color="#111F42"/>
+    </linearGradient>
+    <linearGradient id="tv-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="60%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="tv-pyr-l" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="tv-pyr-d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Pyramids -->
+  <polygon points="268,242 228,340 268,340" fill="url(#tv-pyr-l)" />
+  <polygon points="268,242 268,340 308,340" fill="url(#tv-pyr-d)" />
+  <polygon points="226,276 186,340 226,340" fill="url(#tv-pyr-l)" />
+  <polygon points="226,276 226,340 258,340" fill="url(#tv-pyr-d)" />
+
+  <!-- Road Highway Body (T sweep) -->
+  <path d="M 85 150 H 275 C 298 150 318 162 324 180 C 310 198 275 215 230 235 C 160 268 92 315 92 365 C 92 388 120 392 175 392 C 230 392 288 386 292 386 C 245 372 195 348 160 325 C 125 300 115 272 135 245 C 162 210 230 180 282 168 C 296 164 305 158 290 150 Z" fill="url(#tv-navy)" />
+
+  <!-- Road Gold Lane Stripe -->
+  <path d="M 135 388 C 120 376 112 355 125 330 C 142 296 195 258 250 228 C 285 208 312 190 310 175" stroke="url(#tv-gold)" stroke-width="14" stroke-linecap="round" fill="none" />
+  
+  <!-- Road White Upper Lane Stripe -->
+  <path d="M 172 166 C 235 178 285 198 300 216" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" stroke-opacity="0.8" fill="none" />
+
+  <!-- V Right Wing -->
+  <polygon points="275,384 384,190 424,190 298,388" fill="url(#tv-navy)" />
+
+  <!-- Gold Location Pin -->
+  <g transform="translate(280, 90)">
+    <path d="M 22 56 C 22 56 3 34 3 20 C 3 9 11.5 0 22 0 C 32.5 0 41 9 41 20 C 41 34 22 56 22 56 Z" fill="url(#tv-gold)" />
+    <circle cx="22" cy="20" r="7.5" fill="#FFFFFF" />
+  </g>
+</svg>

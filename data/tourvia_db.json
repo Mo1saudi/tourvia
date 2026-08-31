@@ -1,0 +1,1154 @@
+{
+  "users": [
+    {
+      "id": "usr_admin_mohamed",
+      "name": "Mohamed (TOURVIA Admin)",
+      "email": "mohamedseo2002@gmail.com",
+      "phone": "+201000000002",
+      "accountType": "admin",
+      "workingLanguages": [
+        "ar",
+        "en"
+      ],
+      "verificationStatus": "VERIFIED",
+      "recoveryCode": "TRV-ADMIN-MOHAMED-2026",
+      "role": "admin",
+      "createdAt": "2026-08-31T10:59:21.453Z",
+      "updatedAt": "2026-08-31T10:59:21.453Z"
+    },
+    {
+      "id": "usr_admin_master",
+      "name": "TOURVIA Super Admin",
+      "email": "admin@tourvia.app",
+      "phone": "+201000000001",
+      "accountType": "admin",
+      "workingLanguages": [
+        "ar",
+        "en"
+      ],
+      "verificationStatus": "VERIFIED",
+      "recoveryCode": "TRV-ADMIN-MASTER-99",
+      "role": "admin",
+      "createdAt": "2026-08-31T10:59:21.453Z",
+      "updatedAt": "2026-08-31T10:59:21.453Z"
+    },
+    {
+      "id": "usr_guide_tamer",
+      "name": "Tamer El-Masry (تامر المصري)",
+      "email": "tamer.guide@tourvia.app",
+      "phone": "+201012345678",
+      "accountType": "guide",
+      "workingLanguages": [
+        "ar",
+        "en",
+        "de",
+        "fr"
+      ],
+      "verificationStatus": "VERIFIED",
+      "verificationNote": "Official Egypt Tourism Ministry License #9482 verified",
+      "proofDocumentUrl": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=600&q=80",
+      "recoveryCode": "TRV-7782-9901-EG",
+      "role": "user",
+      "companyName": "Nile Wonders Travel & Tours",
+      "companyTagline": "Bespoke Historical & Luxury Experiences in Egypt",
+      "companyBrandColor": "#f59e0b",
+      "companyLogoUrl": "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=200&q=80",
+      "createdAt": "2026-08-01T10:59:21.453Z",
+      "updatedAt": "2026-08-31T10:59:21.453Z"
+    }
+  ],
+  "userPins": {
+    "usr_admin_mohamed": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87",
+    "usr_admin_master": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87",
+    "usr_guide_tamer": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87"
+  },
+  "sessions": {},
+  "trips": [
+    {
+      "id": "trip_egypt_classic_5d",
+      "guideId": "usr_guide_tamer",
+      "guideName": "Tamer El-Masry (تامر المصري)",
+      "guidePhone": "+201012345678",
+      "guideEmail": "tamer.guide@tourvia.app",
+      "name": "Egypt Pharaohs & Nile Odyssey (5 Days / 4 Nights)",
+      "summary": "A breathtaking journey exploring the Great Pyramids of Giza, the Grand Egyptian Museum, Luxor Karnak & Valley of the Kings, and Alexandria Mediterranean treasures.",
+      "durationDays": 5,
+      "nightsCount": 4,
+      "travelerType": "family",
+      "travelersCount": 4,
+      "budgetTier": "luxury",
+      "travelPace": "moderate",
+      "walkingPreference": "moderate",
+      "interests": [
+        "History",
+        "Ancient Temples",
+        "Nile Views",
+        "Culinary & Local Markets"
+      ],
+      "restrictions": [
+        "Vegetarian meal options",
+        "Wheelchair accessible vehicle required"
+      ],
+      "notes": "Internal guide note: Private Egyptologist VIP entrance arranged at Giza plateau at 8:00 AM before general public.",
+      "status": "published",
+      "isArchived": false,
+      "coverImage": "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=1200&q=80",
+      "destinations": [
+        {
+          "id": "dest_cairo",
+          "name": "Cairo & Giza",
+          "nameAr": "القاهرة والجيزة",
+          "coordinates": {
+            "lat": 30.0444,
+            "lng": 31.2357
+          },
+          "description": "The historic capital of Egypt and home to the Great Pyramids of Giza, the Sphinx, and world-class museums.",
+          "imageUrl": "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=600&q=80",
+          "order": 1,
+          "arrivalDay": 1,
+          "departureDay": 2
+        },
+        {
+          "id": "dest_luxor",
+          "name": "Luxor (Ancient Thebes)",
+          "nameAr": "الأقصر (طيبة القديمة)",
+          "coordinates": {
+            "lat": 25.6872,
+            "lng": 32.6396
+          },
+          "description": "The world greatest open-air museum, featuring Karnak Temple, Luxor Temple, and the Valley of the Kings.",
+          "imageUrl": "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=600&q=80",
+          "order": 2,
+          "arrivalDay": 3,
+          "departureDay": 4
+        },
+        {
+          "id": "dest_alex",
+          "name": "Alexandria",
+          "nameAr": "الإسكندرية عروس البحر المتوسط",
+          "coordinates": {
+            "lat": 31.2001,
+            "lng": 29.9187
+          },
+          "description": "The Mediterranean jewel of Egypt, boasting the Qaitbay Citadel, Bibliotheca Alexandrina, and fresh seafood.",
+          "imageUrl": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80",
+          "order": 3,
+          "arrivalDay": 5,
+          "departureDay": 5
+        }
+      ],
+      "days": [
+        {
+          "dayNumber": 1,
+          "title": "Arrival & The Great Pyramids of Giza & The Sphinx",
+          "destinationId": "dest_cairo",
+          "destinationName": "Cairo & Giza",
+          "stations": [
+            {
+              "id": "st_1_1",
+              "dayNumber": 1,
+              "name": "VIP Airport Meet & Hotel Check-in",
+              "nameAr": "الاستقبال في المطار والتسكين بالفندق",
+              "description": "Private arrival transfer in Mercedes luxury van to Mena House Hotel overlooking the Pyramids.",
+              "startTime": "09:00",
+              "endTime": "10:30",
+              "durationMinutes": 90,
+              "activityType": "transit",
+              "order": 1
+            },
+            {
+              "id": "st_1_2",
+              "dayNumber": 1,
+              "name": "The Great Pyramid of Khufu & Panoramic View",
+              "nameAr": "أهرامات الجيزة البانورامية وتمثال أبو الهول",
+              "description": "Guided exploration of Khufu, Khafre, Menkaure pyramids with private desert horse carriage ride.",
+              "startTime": "11:00",
+              "endTime": "14:00",
+              "durationMinutes": 180,
+              "activityType": "sightseeing",
+              "order": 2
+            },
+            {
+              "id": "st_1_3",
+              "dayNumber": 1,
+              "name": "Traditional Egyptian Lunch overlooking the Sphinx",
+              "nameAr": "غداء مصري تقليدي بإطلالة على الأهرامات",
+              "description": "Authentic dining experiencing grilled kofta, fresh bread, mezzes, and mango juice.",
+              "startTime": "14:30",
+              "endTime": "16:00",
+              "durationMinutes": 90,
+              "activityType": "culinary",
+              "order": 3
+            }
+          ],
+          "mealsIncluded": {
+            "breakfast": true,
+            "lunch": true,
+            "dinner": false
+          },
+          "notes": "Please bring sunglasses, hat, and comfortable walking shoes."
+        },
+        {
+          "dayNumber": 2,
+          "title": "Grand Egyptian Museum & Historic Khan El Khalili Bazaar",
+          "destinationId": "dest_cairo",
+          "destinationName": "Cairo & Giza",
+          "stations": [
+            {
+              "id": "st_2_1",
+              "dayNumber": 2,
+              "name": "Grand Egyptian Museum (GEM) Masterpieces",
+              "nameAr": "المتحف المصري الكبير ومقتنيات توت عنخ آمون",
+              "description": "Marvel at the full Tutankhamun collection, majestic atrium statues, and grand staircase.",
+              "startTime": "09:30",
+              "endTime": "13:00",
+              "durationMinutes": 210,
+              "activityType": "museum",
+              "order": 1
+            },
+            {
+              "id": "st_2_2",
+              "dayNumber": 2,
+              "name": "Khan El Khalili Bazaar & Al-Fishawy Historic Cafe",
+              "nameAr": "خان الخليلي ومقهى الفيشاوي التاريخي",
+              "description": "Walking tour through 14th-century souks, spices, alabaster lamps, and mint tea.",
+              "startTime": "15:00",
+              "endTime": "18:00",
+              "durationMinutes": 180,
+              "activityType": "shopping",
+              "order": 2
+            }
+          ],
+          "mealsIncluded": {
+            "breakfast": true,
+            "lunch": true,
+            "dinner": true
+          }
+        },
+        {
+          "dayNumber": 3,
+          "title": "Flight to Luxor & Karnak Temple Complex",
+          "destinationId": "dest_luxor",
+          "destinationName": "Luxor (Ancient Thebes)",
+          "stations": [
+            {
+              "id": "st_3_1",
+              "dayNumber": 3,
+              "name": "Morning Flight Cairo to Luxor & Check-in",
+              "nameAr": "رحلة الطيران إلى الأقصَر والتسكين",
+              "description": "1-hour flight to Luxor and check-in at historic Winter Palace hotel.",
+              "startTime": "07:00",
+              "endTime": "09:30",
+              "durationMinutes": 150,
+              "activityType": "transit",
+              "order": 1
+            },
+            {
+              "id": "st_3_2",
+              "dayNumber": 3,
+              "name": "Karnak Temple & Hypostyle Hall",
+              "nameAr": "معبد الكرنك وصالة الأعمدة الكبرى",
+              "description": "Walking through 134 colossal stone columns, sacred lake, and avenue of sphinxes.",
+              "startTime": "10:30",
+              "endTime": "13:30",
+              "durationMinutes": 180,
+              "activityType": "historical",
+              "order": 2
+            },
+            {
+              "id": "st_3_3",
+              "dayNumber": 3,
+              "name": "Sunset Felucca Sail on the River Nile",
+              "nameAr": "جولة فلوكة شراعية في نيل الأقصر وقت الغروب",
+              "description": "Peaceful traditional sailing with local music and fresh Egyptian tea.",
+              "startTime": "16:30",
+              "endTime": "18:00",
+              "durationMinutes": 90,
+              "activityType": "relaxation",
+              "order": 3
+            }
+          ],
+          "mealsIncluded": {
+            "breakfast": true,
+            "lunch": true,
+            "dinner": true
+          }
+        },
+        {
+          "dayNumber": 4,
+          "title": "Valley of the Kings, Hatshepsut Temple & Colossi of Memnon",
+          "destinationId": "dest_luxor",
+          "destinationName": "Luxor (Ancient Thebes)",
+          "stations": [
+            {
+              "id": "st_4_1",
+              "dayNumber": 4,
+              "name": "Optional Sunrise Hot Air Balloon over Luxor",
+              "nameAr": "منطاد الهواء الساخن وقت شروق الشمس (اختياري)",
+              "description": "Panoramic bird-eye view of ancient temples and the Nile at dawn.",
+              "startTime": "05:30",
+              "endTime": "07:30",
+              "durationMinutes": 120,
+              "activityType": "adventure",
+              "order": 1
+            },
+            {
+              "id": "st_4_2",
+              "dayNumber": 4,
+              "name": "Royal Tombs in the Valley of the Kings",
+              "nameAr": "مقابر وادي الملوك ومعبد حتشبسوت بالدير البحري",
+              "description": "Deep underground tombs with preserved vibrant ancient Egyptian murals and hieroglyphics.",
+              "startTime": "08:30",
+              "endTime": "12:30",
+              "durationMinutes": 240,
+              "activityType": "historical",
+              "order": 2
+            }
+          ],
+          "mealsIncluded": {
+            "breakfast": true,
+            "lunch": true,
+            "dinner": false
+          }
+        },
+        {
+          "dayNumber": 5,
+          "title": "Alexandria Mediterranean Excursion & Departure",
+          "destinationId": "dest_alex",
+          "destinationName": "Alexandria",
+          "stations": [
+            {
+              "id": "st_5_1",
+              "dayNumber": 5,
+              "name": "Qaitbay Citadel & Sea Corniche Walk",
+              "nameAr": "قلعة قايتباي وكورنيش الإسكندرية",
+              "description": "15th-century fortress erected on the site of the ancient Pharos Lighthouse.",
+              "startTime": "10:00",
+              "endTime": "12:30",
+              "durationMinutes": 150,
+              "activityType": "sightseeing",
+              "order": 1
+            },
+            {
+              "id": "st_5_2",
+              "dayNumber": 5,
+              "name": "Bibliotheca Alexandrina & Seafood Farewell Lunch",
+              "nameAr": "مكتبة الإسكندرية وغداء وداعي للأسماك الطازجة",
+              "description": "Visiting the world-famous modern library and enjoying fresh Mediterranean catch with seaside views.",
+              "startTime": "13:00",
+              "endTime": "16:00",
+              "durationMinutes": 180,
+              "activityType": "culinary",
+              "order": 2
+            }
+          ],
+          "mealsIncluded": {
+            "breakfast": true,
+            "lunch": true,
+            "dinner": false
+          }
+        }
+      ],
+      "transportation": [
+        {
+          "id": "tr_1",
+          "fromDestination": "Cairo & Giza",
+          "toDestination": "Luxor (Ancient Thebes)",
+          "type": "flight",
+          "departureTime": "07:00",
+          "meetingPoint": "Cairo Airport Terminal 3",
+          "distanceKm": 650,
+          "estimatedDurationMinutes": 65,
+          "estimatedCost": 3200
+        },
+        {
+          "id": "tr_2",
+          "fromDestination": "Luxor (Ancient Thebes)",
+          "toDestination": "Alexandria",
+          "type": "flight",
+          "departureTime": "18:00",
+          "meetingPoint": "Luxor Airport",
+          "distanceKm": 850,
+          "estimatedDurationMinutes": 120,
+          "estimatedCost": 3800
+        },
+        {
+          "id": "tr_3",
+          "fromDestination": "Cairo & Giza",
+          "toDestination": "Alexandria",
+          "type": "car",
+          "departureTime": "08:00",
+          "meetingPoint": "Hotel Lobby",
+          "distanceKm": 220,
+          "estimatedDurationMinutes": 150,
+          "estimatedCost": 1800
+        }
+      ],
+      "costs": {
+        "accommodation": 14000,
+        "transportation": 8800,
+        "activities": 6200,
+        "guideFee": 7500,
+        "food": 4500,
+        "otherCosts": 2000,
+        "totalCost": 43000,
+        "sellingPrice": 58000,
+        "calculatedProfit": 15000,
+        "profitMarginPercent": 25.86,
+        "currency": "EGP"
+      },
+      "publicToken": "tv_demo_egypt_explorer_2026",
+      "publicLinkUrl": "/trip/public/tv_demo_egypt_explorer_2026",
+      "isPublicPriceVisible": true,
+      "publicNotes": "Includes airport meet-and-assist, deluxe private air-conditioned vehicle, licensed Egyptologist guide, all monument entry tickets, and daily breakfast & lunches.",
+      "inclusions": [
+        "Private licensed expert Egyptologist guide",
+        "VIP air-conditioned private vehicle throughout",
+        "All entrance fees to listed sites and museums",
+        "Domestic flights (Cairo - Luxor - Cairo)",
+        "Nile Felucca sailing ride",
+        "All breakfasts and highlighted authentic lunches",
+        "Mineral water and refreshing wipes during tours"
+      ],
+      "exclusions": [
+        "International flights to/from Egypt",
+        "Entry inside the Great Pyramid burial chamber (optional ticket)",
+        "Sunrise Hot Air Balloon ride in Luxor ($75 optional)",
+        "Personal tipping for drivers & luggage handlers"
+      ],
+      "currentVersion": 1,
+      "createdAt": "2026-08-24T10:59:21.453Z",
+      "updatedAt": "2026-08-31T10:59:21.453Z"
+    }
+  ],
+  "tripVersions": [
+    {
+      "id": "ver_1",
+      "tripId": "trip_egypt_classic_5d",
+      "versionNumber": 1,
+      "changeSummary": "Initial verified published version",
+      "createdAt": "2026-08-24T10:59:21.453Z",
+      "createdBy": "usr_guide_tamer",
+      "snapshot": {
+        "id": "trip_egypt_classic_5d",
+        "guideId": "usr_guide_tamer",
+        "guideName": "Tamer El-Masry (تامر المصري)",
+        "guidePhone": "+201012345678",
+        "guideEmail": "tamer.guide@tourvia.app",
+        "name": "Egypt Pharaohs & Nile Odyssey (5 Days / 4 Nights)",
+        "summary": "A breathtaking journey exploring the Great Pyramids of Giza, the Grand Egyptian Museum, Luxor Karnak & Valley of the Kings, and Alexandria Mediterranean treasures.",
+        "durationDays": 5,
+        "nightsCount": 4,
+        "travelerType": "family",
+        "travelersCount": 4,
+        "budgetTier": "luxury",
+        "travelPace": "moderate",
+        "walkingPreference": "moderate",
+        "interests": [
+          "History",
+          "Ancient Temples",
+          "Nile Views",
+          "Culinary & Local Markets"
+        ],
+        "restrictions": [
+          "Vegetarian meal options",
+          "Wheelchair accessible vehicle required"
+        ],
+        "notes": "Internal guide note: Private Egyptologist VIP entrance arranged at Giza plateau at 8:00 AM before general public.",
+        "status": "published",
+        "isArchived": false,
+        "coverImage": "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=1200&q=80",
+        "destinations": [
+          {
+            "id": "dest_cairo",
+            "name": "Cairo & Giza",
+            "nameAr": "القاهرة والجيزة",
+            "coordinates": {
+              "lat": 30.0444,
+              "lng": 31.2357
+            },
+            "description": "The historic capital of Egypt and home to the Great Pyramids of Giza, the Sphinx, and world-class museums.",
+            "imageUrl": "https://images.unsplash.com/photo-1503177119275-0aa32b3a9368?auto=format&fit=crop&w=600&q=80",
+            "order": 1,
+            "arrivalDay": 1,
+            "departureDay": 2
+          },
+          {
+            "id": "dest_luxor",
+            "name": "Luxor (Ancient Thebes)",
+            "nameAr": "الأقصر (طيبة القديمة)",
+            "coordinates": {
+              "lat": 25.6872,
+              "lng": 32.6396
+            },
+            "description": "The world greatest open-air museum, featuring Karnak Temple, Luxor Temple, and the Valley of the Kings.",
+            "imageUrl": "https://images.unsplash.com/photo-1539650116574-8efeb43e2750?auto=format&fit=crop&w=600&q=80",
+            "order": 2,
+            "arrivalDay": 3,
+            "departureDay": 4
+          },
+          {
+            "id": "dest_alex",
+            "name": "Alexandria",
+            "nameAr": "الإسكندرية عروس البحر المتوسط",
+            "coordinates": {
+              "lat": 31.2001,
+              "lng": 29.9187
+            },
+            "description": "The Mediterranean jewel of Egypt, boasting the Qaitbay Citadel, Bibliotheca Alexandrina, and fresh seafood.",
+            "imageUrl": "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=600&q=80",
+            "order": 3,
+            "arrivalDay": 5,
+            "departureDay": 5
+          }
+        ],
+        "days": [
+          {
+            "dayNumber": 1,
+            "title": "Arrival & The Great Pyramids of Giza & The Sphinx",
+            "destinationId": "dest_cairo",
+            "destinationName": "Cairo & Giza",
+            "stations": [
+              {
+                "id": "st_1_1",
+                "dayNumber": 1,
+                "name": "VIP Airport Meet & Hotel Check-in",
+                "nameAr": "الاستقبال في المطار والتسكين بالفندق",
+                "description": "Private arrival transfer in Mercedes luxury van to Mena House Hotel overlooking the Pyramids.",
+                "startTime": "09:00",
+                "endTime": "10:30",
+                "durationMinutes": 90,
+                "activityType": "transit",
+                "order": 1
+              },
+              {
+                "id": "st_1_2",
+                "dayNumber": 1,
+                "name": "The Great Pyramid of Khufu & Panoramic View",
+                "nameAr": "أهرامات الجيزة البانورامية وتمثال أبو الهول",
+                "description": "Guided exploration of Khufu, Khafre, Menkaure pyramids with private desert horse carriage ride.",
+                "startTime": "11:00",
+                "endTime": "14:00",
+                "durationMinutes": 180,
+                "activityType": "sightseeing",
+                "order": 2
+              },
+              {
+                "id": "st_1_3",
+                "dayNumber": 1,
+                "name": "Traditional Egyptian Lunch overlooking the Sphinx",
+                "nameAr": "غداء مصري تقليدي بإطلالة على الأهرامات",
+                "description": "Authentic dining experiencing grilled kofta, fresh bread, mezzes, and mango juice.",
+                "startTime": "14:30",
+                "endTime": "16:00",
+                "durationMinutes": 90,
+                "activityType": "culinary",
+                "order": 3
+              }
+            ],
+            "mealsIncluded": {
+              "breakfast": true,
+              "lunch": true,
+              "dinner": false
+            },
+            "notes": "Please bring sunglasses, hat, and comfortable walking shoes."
+          },
+          {
+            "dayNumber": 2,
+            "title": "Grand Egyptian Museum & Historic Khan El Khalili Bazaar",
+            "destinationId": "dest_cairo",
+            "destinationName": "Cairo & Giza",
+            "stations": [
+              {
+                "id": "st_2_1",
+                "dayNumber": 2,
+                "name": "Grand Egyptian Museum (GEM) Masterpieces",
+                "nameAr": "المتحف المصري الكبير ومقتنيات توت عنخ آمون",
+                "description": "Marvel at the full Tutankhamun collection, majestic atrium statues, and grand staircase.",
+                "startTime": "09:30",
+                "endTime": "13:00",
+                "durationMinutes": 210,
+                "activityType": "museum",
+                "order": 1
+              },
+              {
+                "id": "st_2_2",
+                "dayNumber": 2,
+                "name": "Khan El Khalili Bazaar & Al-Fishawy Historic Cafe",
+                "nameAr": "خان الخليلي ومقهى الفيشاوي التاريخي",
+                "description": "Walking tour through 14th-century souks, spices, alabaster lamps, and mint tea.",
+                "startTime": "15:00",
+                "endTime": "18:00",
+                "durationMinutes": 180,
+                "activityType": "shopping",
+                "order": 2
+              }
+            ],
+            "mealsIncluded": {
+              "breakfast": true,
+              "lunch": true,
+              "dinner": true
+            }
+          },
+          {
+            "dayNumber": 3,
+            "title": "Flight to Luxor & Karnak Temple Complex",
+            "destinationId": "dest_luxor",
+            "destinationName": "Luxor (Ancient Thebes)",
+            "stations": [
+              {
+                "id": "st_3_1",
+                "dayNumber": 3,
+                "name": "Morning Flight Cairo to Luxor & Check-in",
+                "nameAr": "رحلة الطيران إلى الأقصَر والتسكين",
+                "description": "1-hour flight to Luxor and check-in at historic Winter Palace hotel.",
+                "startTime": "07:00",
+                "endTime": "09:30",
+                "durationMinutes": 150,
+                "activityType": "transit",
+                "order": 1
+              },
+              {
+                "id": "st_3_2",
+                "dayNumber": 3,
+                "name": "Karnak Temple & Hypostyle Hall",
+                "nameAr": "معبد الكرنك وصالة الأعمدة الكبرى",
+                "description": "Walking through 134 colossal stone columns, sacred lake, and avenue of sphinxes.",
+                "startTime": "10:30",
+                "endTime": "13:30",
+                "durationMinutes": 180,
+                "activityType": "historical",
+                "order": 2
+              },
+              {
+                "id": "st_3_3",
+                "dayNumber": 3,
+                "name": "Sunset Felucca Sail on the River Nile",
+                "nameAr": "جولة فلوكة شراعية في نيل الأقصر وقت الغروب",
+                "description": "Peaceful traditional sailing with local music and fresh Egyptian tea.",
+                "startTime": "16:30",
+                "endTime": "18:00",
+                "durationMinutes": 90,
+                "activityType": "relaxation",
+                "order": 3
+              }
+            ],
+            "mealsIncluded": {
+              "breakfast": true,
+              "lunch": true,
+              "dinner": true
+            }
+          },
+          {
+            "dayNumber": 4,
+            "title": "Valley of the Kings, Hatshepsut Temple & Colossi of Memnon",
+            "destinationId": "dest_luxor",
+            "destinationName": "Luxor (Ancient Thebes)",
+            "stations": [
+              {
+                "id": "st_4_1",
+                "dayNumber": 4,
+                "name": "Optional Sunrise Hot Air Balloon over Luxor",
+                "nameAr": "منطاد الهواء الساخن وقت شروق الشمس (اختياري)",
+                "description": "Panoramic bird-eye view of ancient temples and the Nile at dawn.",
+                "startTime": "05:30",
+                "endTime": "07:30",
+                "durationMinutes": 120,
+                "activityType": "adventure",
+                "order": 1
+              },
+              {
+                "id": "st_4_2",
+                "dayNumber": 4,
+                "name": "Royal Tombs in the Valley of the Kings",
+                "nameAr": "مقابر وادي الملوك ومعبد حتشبسوت بالدير البحري",
+                "description": "Deep underground tombs with preserved vibrant ancient Egyptian murals and hieroglyphics.",
+                "startTime": "08:30",
+                "endTime": "12:30",
+                "durationMinutes": 240,
+                "activityType": "historical",
+                "order": 2
+              }
+            ],
+            "mealsIncluded": {
+              "breakfast": true,
+              "lunch": true,
+              "dinner": false
+            }
+          },
+          {
+            "dayNumber": 5,
+            "title": "Alexandria Mediterranean Excursion & Departure",
+            "destinationId": "dest_alex",
+            "destinationName": "Alexandria",
+            "stations": [
+              {
+                "id": "st_5_1",
+                "dayNumber": 5,
+                "name": "Qaitbay Citadel & Sea Corniche Walk",
+                "nameAr": "قلعة قايتباي وكورنيش الإسكندرية",
+                "description": "15th-century fortress erected on the site of the ancient Pharos Lighthouse.",
+                "startTime": "10:00",
+                "endTime": "12:30",
+                "durationMinutes": 150,
+                "activityType": "sightseeing",
+                "order": 1
+              },
+              {
+                "id": "st_5_2",
+                "dayNumber": 5,
+                "name": "Bibliotheca Alexandrina & Seafood Farewell Lunch",
+                "nameAr": "مكتبة الإسكندرية وغداء وداعي للأسماك الطازجة",
+                "description": "Visiting the world-famous modern library and enjoying fresh Mediterranean catch with seaside views.",
+                "startTime": "13:00",
+                "endTime": "16:00",
+                "durationMinutes": 180,
+                "activityType": "culinary",
+                "order": 2
+              }
+            ],
+            "mealsIncluded": {
+              "breakfast": true,
+              "lunch": true,
+              "dinner": false
+            }
+          }
+        ],
+        "transportation": [
+          {
+            "id": "tr_1",
+            "fromDestination": "Cairo & Giza",
+            "toDestination": "Luxor (Ancient Thebes)",
+            "type": "flight",
+            "departureTime": "07:00",
+            "meetingPoint": "Cairo Airport Terminal 3",
+            "distanceKm": 650,
+            "estimatedDurationMinutes": 65,
+            "estimatedCost": 3200
+          },
+          {
+            "id": "tr_2",
+            "fromDestination": "Luxor (Ancient Thebes)",
+            "toDestination": "Alexandria",
+            "type": "flight",
+            "departureTime": "18:00",
+            "meetingPoint": "Luxor Airport",
+            "distanceKm": 850,
+            "estimatedDurationMinutes": 120,
+            "estimatedCost": 3800
+          },
+          {
+            "id": "tr_3",
+            "fromDestination": "Cairo & Giza",
+            "toDestination": "Alexandria",
+            "type": "car",
+            "departureTime": "08:00",
+            "meetingPoint": "Hotel Lobby",
+            "distanceKm": 220,
+            "estimatedDurationMinutes": 150,
+            "estimatedCost": 1800
+          }
+        ],
+        "costs": {
+          "accommodation": 14000,
+          "transportation": 8800,
+          "activities": 6200,
+          "guideFee": 7500,
+          "food": 4500,
+          "otherCosts": 2000,
+          "totalCost": 43000,
+          "sellingPrice": 58000,
+          "calculatedProfit": 15000,
+          "profitMarginPercent": 25.86,
+          "currency": "EGP"
+        },
+        "publicToken": "tv_demo_egypt_explorer_2026",
+        "publicLinkUrl": "/trip/public/tv_demo_egypt_explorer_2026",
+        "isPublicPriceVisible": true,
+        "publicNotes": "Includes airport meet-and-assist, deluxe private air-conditioned vehicle, licensed Egyptologist guide, all monument entry tickets, and daily breakfast & lunches.",
+        "inclusions": [
+          "Private licensed expert Egyptologist guide",
+          "VIP air-conditioned private vehicle throughout",
+          "All entrance fees to listed sites and museums",
+          "Domestic flights (Cairo - Luxor - Cairo)",
+          "Nile Felucca sailing ride",
+          "All breakfasts and highlighted authentic lunches",
+          "Mineral water and refreshing wipes during tours"
+        ],
+        "exclusions": [
+          "International flights to/from Egypt",
+          "Entry inside the Great Pyramid burial chamber (optional ticket)",
+          "Sunrise Hot Air Balloon ride in Luxor ($75 optional)",
+          "Personal tipping for drivers & luggage handlers"
+        ],
+        "currentVersion": 1,
+        "createdAt": "2026-08-24T10:59:21.453Z",
+        "updatedAt": "2026-08-31T10:59:21.453Z"
+      }
+    }
+  ],
+  "inquiries": [
+    {
+      "id": "inq_1",
+      "tripId": "trip_egypt_classic_5d",
+      "tripName": "Egypt Pharaohs & Nile Odyssey (5 Days / 4 Nights)",
+      "guideId": "usr_guide_tamer",
+      "clientName": "Alexander Schmidt",
+      "clientEmail": "alex.schmidt@berlin-travel.de",
+      "clientPhone": "+491701234567",
+      "message": "Hello Tamer! We are a family of 4 from Germany looking to book this exact 5-day itinerary for November. Can we add a private dinner cruise in Cairo?",
+      "status": "NEW",
+      "createdAt": "2026-08-29T10:59:21.454Z"
+    }
+  ],
+  "reviews": [
+    {
+      "id": "rev_1",
+      "tripId": "trip_egypt_classic_5d",
+      "guideId": "usr_guide_tamer",
+      "clientName": "Sarah & Mark Jenkins",
+      "clientCountry": "United Kingdom",
+      "rating": 5,
+      "comment": "Tamer was the absolute highlight of our Egypt trip! His historical knowledge at Karnak and Giza was mesmerizing, and the timing of every stop was flawless. 10/10 recommended!",
+      "createdAt": "2026-08-26T10:59:21.454Z"
+    },
+    {
+      "id": "rev_2",
+      "tripId": "trip_egypt_classic_5d",
+      "guideId": "usr_guide_tamer",
+      "clientName": "Matteo Rossi",
+      "clientCountry": "Italy",
+      "rating": 5,
+      "comment": "Esperienza indimenticabile! Organizzazione impeccabile, veicolo comodo e spiegazioni chiare e coinvolgenti.",
+      "createdAt": "2026-08-19T10:59:21.454Z"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "notif_welcome",
+      "userId": "usr_guide_tamer",
+      "type": "SYSTEM",
+      "title": "مرحبًا بك في منصة TOURVIA!",
+      "message": "تم تفعيل حسابك كمرشد موثق. يمكنك الآن إنشاء برامج ذكية بالذكاء الاصطناعي ومشاركتها مع عملائك.",
+      "isRead": false,
+      "createdAt": "2026-08-11T10:59:21.454Z"
+    },
+    {
+      "id": "notif_inq_1",
+      "userId": "usr_guide_tamer",
+      "type": "INQUIRY",
+      "title": "استفسار عميل جديد: Alexander Schmidt",
+      "message": "تلقيت استفسارًا جديدًا بخصوص برنامج: Egypt Pharaohs & Nile Odyssey.",
+      "isRead": false,
+      "actionUrl": "/inquiries",
+      "createdAt": "2026-08-29T10:59:21.454Z"
+    }
+  ],
+  "plans": [
+    {
+      "id": "plan_free",
+      "code": "FREE",
+      "name": "Free Explorer",
+      "nameAr": "الباقة المجانية",
+      "description": "Perfect for testing TOURVIA with 3 lifetime AI travel programs",
+      "descriptionAr": "مثالية لتجربة المنصة مع 3 برامج سياحية بالذكاء الاصطناعي مدى الحياة",
+      "price": 0,
+      "currency": "EGP",
+      "billingPeriod": "lifetime",
+      "aiLimit": 3,
+      "aiUnlimited": false,
+      "features": [
+        "3 Lifetime AI Trip Generations",
+        "Up to 3 Destinations per Trip",
+        "Public Client Web Links",
+        "Basic Cost Calculation"
+      ],
+      "featuresAr": [
+        "3 برامج سياحية بالذكاء الاصطناعي مدى الحياة",
+        "حتى 3 وجهات لكل برنامج",
+        "روابط ويب عامة للعملاء",
+        "حساب التكاليف الأساسي"
+      ],
+      "maxDestinations": 3,
+      "exportsAllowed": false,
+      "brandingAllowed": false,
+      "teamMembers": 1,
+      "isActive": true
+    },
+    {
+      "id": "plan_basic",
+      "code": "BASIC",
+      "name": "Guide Starter",
+      "nameAr": "باقة المرشد الأساسية",
+      "description": "For active individual tour guides creating regular itineraries",
+      "descriptionAr": "للمرشدين النشطين الراغبين في إنشاء برامج منتظمة وتصدير PDF",
+      "price": 350,
+      "currency": "EGP",
+      "billingPeriod": "monthly",
+      "aiLimit": 15,
+      "aiUnlimited": false,
+      "features": [
+        "15 AI Trip Generations / month",
+        "Up to 5 Destinations per Trip",
+        "PDF Export & Slide Presentations",
+        "Custom Inclusions/Exclusions",
+        "Client Inquiries & Reviews"
+      ],
+      "featuresAr": [
+        "15 برنامج بالذكاء الاصطناعي شهريًا",
+        "حتى 5 وجهات لكل برنامج",
+        "تصدير PDF وعروض تقديمية",
+        "تخصيص المشتملات وغير المشتملات",
+        "استقبال استفسارات وتقييمات العملاء"
+      ],
+      "maxDestinations": 5,
+      "exportsAllowed": true,
+      "brandingAllowed": false,
+      "teamMembers": 1,
+      "isActive": true
+    },
+    {
+      "id": "plan_pro",
+      "code": "PRO",
+      "name": "Professional Guide",
+      "nameAr": "باقة المحترفين (الأكثر شعبية)",
+      "description": "High AI quota, White-label branding, interactive maps, and priority support",
+      "descriptionAr": "سعة ذكاء اصطناعي عالية، هوية بصرية مخصصة، خرائط تفاعلية، ودعم أولوية",
+      "price": 750,
+      "currency": "EGP",
+      "billingPeriod": "monthly",
+      "aiLimit": 60,
+      "aiUnlimited": false,
+      "features": [
+        "60 AI Trip Generations / month",
+        "Unlimited Destinations & Stations",
+        "Custom Logo & Brand Colors",
+        "Interactive Route Maps",
+        "Detailed Profit Analytics & CSV",
+        "Priority Verification & Support"
+      ],
+      "featuresAr": [
+        "60 برنامج ذكي شهريًا",
+        "وجهات ومحطات غير محدودة",
+        "إضافة شعار وألوان شركتك الخاصة",
+        "خرائط مسار تفاعلية للمسافر",
+        "تحليلات أرباح متقدمة وتصدير CSV",
+        "توثيق ودعم فني متميز"
+      ],
+      "maxDestinations": 10,
+      "exportsAllowed": true,
+      "brandingAllowed": true,
+      "teamMembers": 2,
+      "isActive": true
+    },
+    {
+      "id": "plan_premium",
+      "code": "PREMIUM",
+      "name": "Enterprise / Agency",
+      "nameAr": "باقة الشركات والوكالات",
+      "description": "Unlimited AI programs, full white-labeling, multi-member teams and campaign tools",
+      "descriptionAr": "برامج ذكاء اصطناعي غير محدودة، تخصيص كامل للعلامة التجارية، وفرق عمل",
+      "price": 1800,
+      "currency": "EGP",
+      "billingPeriod": "monthly",
+      "aiLimit": 9999,
+      "aiUnlimited": true,
+      "features": [
+        "Unlimited AI Trip Generations",
+        "Full White-Label Client Experience",
+        "Team Multi-User Access (Up to 10 Guides)",
+        "Advanced Campaign & Promo Engine",
+        "Dedicated Account Manager"
+      ],
+      "featuresAr": [
+        "توليد برامج ذكاء اصطناعي غير محدود",
+        "تجربة عميل مخصصة بالكامل باسم وكالتك",
+        "دعم فرق العمل حتى 10 مرشدين",
+        "محرك حملات تسويقية وأكواد خصم",
+        "مدير حساب مخصص"
+      ],
+      "maxDestinations": 20,
+      "exportsAllowed": true,
+      "brandingAllowed": true,
+      "teamMembers": 10,
+      "isActive": true
+    }
+  ],
+  "subscriptions": [
+    {
+      "id": "sub_guide_pro",
+      "userId": "usr_guide_tamer",
+      "planId": "plan_pro",
+      "planCode": "PRO",
+      "status": "ACTIVE",
+      "startDate": "2026-08-01T10:59:21.454Z",
+      "endDate": "2027-08-01T10:59:21.454Z",
+      "amountPaid": 750,
+      "currency": "EGP",
+      "provider": "INSTAPAY"
+    },
+    {
+      "id": "sub_admin_usr_admin_mohamed",
+      "userId": "usr_admin_mohamed",
+      "planId": "plan_enterprise",
+      "planCode": "ENTERPRISE",
+      "status": "ACTIVE",
+      "startDate": "2026-08-31T10:59:39.528Z",
+      "amountPaid": 0,
+      "currency": "EGP",
+      "provider": "ADMIN_GRANT"
+    },
+    {
+      "id": "sub_admin_usr_admin_master",
+      "userId": "usr_admin_master",
+      "planId": "plan_enterprise",
+      "planCode": "ENTERPRISE",
+      "status": "ACTIVE",
+      "startDate": "2026-08-31T10:59:39.528Z",
+      "amountPaid": 0,
+      "currency": "EGP",
+      "provider": "ADMIN_GRANT"
+    }
+  ],
+  "paymentRequests": [
+    {
+      "id": "pay_init_1",
+      "userId": "usr_guide_tamer",
+      "userEmail": "tamer.guide@tourvia.app",
+      "userName": "Tamer El-Masry (تامر المصري)",
+      "planId": "plan_pro",
+      "planName": "Professional Guide",
+      "amount": 750,
+      "currency": "EGP",
+      "paymentMethod": "INSTAPAY",
+      "transactionReference": "IPN-90281-TOURVIA",
+      "status": "APPROVED",
+      "adminNote": "InstaPay transfer confirmed on bank statement.",
+      "createdAt": "2026-08-01T10:59:21.454Z",
+      "resolvedAt": "2026-08-01T10:59:21.454Z"
+    }
+  ],
+  "promoCodes": [
+    {
+      "id": "promo_welcome50",
+      "code": "WELCOME50",
+      "discountPercent": 50,
+      "startDate": "2026-01-01",
+      "expiryDate": "2027-12-31",
+      "maxUses": 500,
+      "usedCount": 12,
+      "minOrderAmount": 300,
+      "maxDiscountAmount": 400,
+      "isActive": true
+    },
+    {
+      "id": "promo_guide2026",
+      "code": "TOURVIA2026",
+      "fixedDiscount": 100,
+      "startDate": "2026-01-01",
+      "expiryDate": "2026-12-31",
+      "maxUses": 1000,
+      "usedCount": 38,
+      "minOrderAmount": 350,
+      "isActive": true
+    }
+  ],
+  "aiUsage": {
+    "usr_guide_tamer": {
+      "userId": "usr_guide_tamer",
+      "lifetimeUsed": 2,
+      "lifetimeLimit": 60,
+      "currentPlanAiLimit": 60,
+      "isUnlimited": false,
+      "history": [
+        {
+          "id": "gen_1",
+          "tripName": "Egypt Pharaohs & Nile Odyssey",
+          "destinations": [
+            "Cairo & Giza",
+            "Luxor",
+            "Alexandria"
+          ],
+          "durationDays": 5,
+          "timestamp": "2026-08-24T10:59:21.454Z",
+          "success": true
+        },
+        {
+          "id": "gen_2",
+          "tripName": "Red Sea & Sinai Adventure",
+          "destinations": [
+            "Sharm El Sheikh",
+            "Dahab",
+            "Saint Catherine"
+          ],
+          "durationDays": 4,
+          "timestamp": "2026-08-28T10:59:21.454Z",
+          "success": true
+        }
+      ]
+    },
+    "usr_admin_mohamed": {
+      "userId": "usr_admin_mohamed",
+      "lifetimeUsed": 0,
+      "lifetimeLimit": 99999,
+      "currentPlanAiLimit": 99999,
+      "isUnlimited": true,
+      "history": []
+    },
+    "usr_admin_master": {
+      "userId": "usr_admin_master",
+      "lifetimeUsed": 0,
+      "lifetimeLimit": 99999,
+      "currentPlanAiLimit": 99999,
+      "isUnlimited": true,
+      "history": []
+    }
+  },
+  "auditLogs": [
+    {
+      "id": "log_1",
+      "userId": "usr_admin_master",
+      "userEmail": "admin@tourvia.app",
+      "action": "SYSTEM_BOOTSTRAP",
+      "details": "TOURVIA production database initialized with core seed tables.",
+      "timestamp": "2026-08-31T10:59:21.454Z"
+    },
+    {
+      "id": "log_2",
+      "userId": "usr_guide_tamer",
+      "userEmail": "tamer.guide@tourvia.app",
+      "action": "TRIP_PUBLISHED",
+      "details": "Trip Egypt Pharaohs & Nile Odyssey (5 Days) published with public token.",
+      "timestamp": "2026-08-24T10:59:21.454Z"
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "cmp_spring2026",
+      "title": "Spring Tourism Season Launch 2026",
+      "targetSegment": "all",
+      "message": "استعد لموسم السياحة الربيعي مع TOURVIA! استخدم كود WELCOME50 للحصول على 50% خصم على باقة Pro.",
+      "promoCode": "WELCOME50",
+      "status": "active",
+      "sentCount": 142,
+      "createdAt": "2026-08-21T10:59:21.454Z"
+    }
+  ],
+  "adminAiSettings": {
+    "freeAiLifetimeLimit": 3,
+    "aiProvider": "gemini",
+    "aiModel": "gemini-3.7-flash",
+    "allowDayRegeneration": true,
+    "dayRegenConsumesQuota": false,
+    "fallbackEnabled": true
+  },
+  "publicLinkViews": {
+    "tv_demo_egypt_explorer_2026": {
+      "token": "tv_demo_egypt_explorer_2026",
+      "tripId": "trip_egypt_classic_5d",
+      "count": 50,
+      "firstViewAt": "2026-08-25T10:59:21.454Z",
+      "lastViewAt": "2026-08-31T11:06:59.330Z"
+    }
+  }
+}

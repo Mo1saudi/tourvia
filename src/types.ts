@@ -1,5 +1,42 @@
 export type AccountType = 'guide' | 'company' | 'admin';
-export type VerificationStatus = 'PENDING_VERIFICATION' | 'VERIFIED' | 'REJECTED';
+
+export type VerificationStatus =
+  | 'NEW'
+  | 'PENDING_VERIFICATION'
+  | 'IDENTITY_VERIFIED'
+  | 'LICENSED_GUIDE_VERIFIED'
+  | 'NEEDS_UPDATE'
+  | 'LICENSE_EXPIRED'
+  | 'SUSPENDED'
+  | 'NOT_ELIGIBLE'
+  // Backward compatibility aliases
+  | 'VERIFIED'
+  | 'REJECTED';
+
+export type ProfessionalScope = 'GENERAL_PLANNER' | 'LICENSED_GUIDE' | 'TOURISM_COMPANY';
+
+export interface GuideLicenseInfo {
+  fullLegalName?: string;
+  nationalIdMasked?: string; // Encrypted or masked for privacy (e.g. *******1234)
+  licenseNumber?: string; // رقم ترخيص مزاولة الإرشاد السياحي
+  syndicateNumber?: string; // رقم القيد بنقابة المرشدين السياحيين
+  issuingAuthority?: string; // e.g. "وزارة السياحة والآثار - جمهورية مصر العربية"
+  issueDate?: string;
+  expiryDate?: string; // تاريخ الانتهاء / التجديد الدوري
+  authorizedLanguages?: string[]; // اللغات المعتمدة رسميًا في الترخيص
+  isLicenseExpiringSoon?: boolean; // ينتهي خلال 30 يوم
+  isLicenseExpired?: boolean;
+  licenseValidityStatus?: 'VALID' | 'EXPIRING_SOON' | 'EXPIRED' | 'SUSPENDED' | 'NOT_APPLICABLE';
+  verifiedAt?: string;
+  verifiedByAdminId?: string;
+  verifiedByAdminEmail?: string;
+  verificationNotes?: string;
+  documentRetentionPolicy?: 'RETAIN_DURING_ACTIVE_STATUS' | 'PURGE_AFTER_1_YEAR' | 'PURGED_SECURELY';
+  commercialEntityStatus?: 'INDIVIDUAL_GUIDE' | 'VERIFIED_COMPANY' | 'UNVERIFIED_CLAIM';
+  prohibitedClaimsDetected?: string[];
+  requiresLegalReview?: boolean;
+}
+
 export type WorkingLanguage = 'ar' | 'en' | 'de' | 'ru' | 'pl' | 'it' | 'fr' | 'es' | 'zh' | string;
 
 export interface User {
@@ -9,11 +46,14 @@ export interface User {
   phone: string;
   accountType: AccountType;
   workingLanguages: WorkingLanguage[];
+  authorizedLanguages?: string[]; // Verified on official license documents
   verificationStatus: VerificationStatus;
   verificationNote?: string;
-  proofDocumentUrl?: string;
+  proofDocumentUrl?: string; // Internal protected storage reference
+  proofDocumentType?: 'MINISTRY_LICENSE' | 'SYNDICATE_CARD' | 'TAX_CARD' | 'COMMERCIAL_REGISTER';
   syndicateNumber?: string;
   licenseNumber?: string;
+  licenseInfo?: GuideLicenseInfo;
   bio?: string;
   recoveryCode: string;
   role: 'user' | 'admin';
@@ -236,11 +276,18 @@ export interface PublicTripPayload {
     phone?: string;
     email?: string;
     verificationStatus?: string;
+    verificationLabelAr?: string;
     workingLanguages?: string[];
+    authorizedLanguages?: string[];
     languages?: string[];
     isVerified?: boolean;
+    isLicensedGuideVerified?: boolean;
+    commercialScope?: 'INDIVIDUAL_GUIDE' | 'VERIFIED_COMPANY' | 'UNVERIFIED_CLAIM';
+    commercialScopeLabelAr?: string;
   };
   reviews: TripReview[];
+  regulatoryDisclaimer?: string;
+  siteNotices?: SiteRegulatoryNotice[];
 }
 
 export interface TripReview {
@@ -413,3 +460,188 @@ export interface AdminAiSettings {
   dayRegenConsumesQuota: boolean;
   fallbackEnabled: boolean;
 }
+
+// -------------------------------------------------------------
+// Egyptian Tourism Regulatory Compliance & Legal Readiness Models
+// -------------------------------------------------------------
+
+export type ComplianceCategory =
+  | 'GUIDE_REQUIREMENTS'
+  | 'VERIFICATION_STATUS'
+  | 'DOCUMENTS_SECURITY'
+  | 'AUTHORIZED_LANGUAGES'
+  | 'PROFESSIONAL_SCOPE'
+  | 'ITINERARIES_SITES'
+  | 'AI_CONTENT_SAFETY'
+  | 'PRIVACY_MINIMIZATION'
+  | 'COMPLAINTS_INTEGRITY'
+  | 'AUDIT_LOGS'
+  | 'REGULATORY_REVIEW';
+
+export type ComplianceRequirementStatus =
+  | 'COMPLIANT' // مستوفى
+  | 'NON_COMPLIANT' // غير مستوفى
+  | 'IN_REVIEW' // قيد المراجعة
+  | 'NEEDS_UPDATE' // يحتاج تحديث
+  | 'NOT_APPLICABLE'; // غير منطبق
+
+export interface ComplianceRequirement {
+  id: string;
+  category: ComplianceCategory;
+  categoryNameAr: string;
+  title: string;
+  titleAr: string;
+  legalBasis: string; // e.g. "القانون رقم 121 لسنة 1983 ولائحته التنفيذية وقرارات وزارة السياحة والآثار"
+  description: string;
+  descriptionAr: string;
+  status: ComplianceRequirementStatus;
+  statusAr: 'مستوفى' | 'غير مستوفى' | 'قيد المراجعة' | 'يحتاج تحديث' | 'غير منطبق';
+  evidenceNote: string;
+  lastReviewedAt: string;
+  reviewedBy: string;
+  riskLevel: 'LOW' | 'MEDIUM' | 'HIGH' | 'LEGAL_REVIEW_REQUIRED';
+  actionRequired?: string;
+}
+
+export interface RegulatoryUpdate {
+  id: string;
+  regulationName: string;
+  regulationNameAr: string;
+  source: string; // e.g. "وزارة السياحة والآثار / الجريدة الرسمية"
+  decreeNumber?: string; // e.g. "قرار وزاري رقم 82 لسنة 2024"
+  publishedDate: string;
+  effectiveDate: string;
+  summaryAr: string;
+  affectedPlatformFeature: string;
+  requiredSystemChange: string;
+  reviewStatus: 'PENDING_LEGAL_REVIEW' | 'IMPLEMENTED' | 'MONITORING';
+  reviewedBy?: string;
+  notes?: string;
+  updatedAt: string;
+}
+
+export type ComplaintType =
+  | 'MISLEADING_GUIDE_STATUS'
+  | 'FALSE_COMMERCIAL_CLAIM'
+  | 'INACCURATE_SITE_INFO'
+  | 'INAPPROPRIATE_CONTENT'
+  | 'PRICING_DISCREPANCY'
+  | 'UNAUTHORIZED_ACTIVITY'
+  | 'OTHER';
+
+export type ComplaintStatus =
+  | 'OPEN'
+  | 'INVESTIGATING'
+  | 'INFO_REQUESTED'
+  | 'RESOLVED'
+  | 'DISMISSED'
+  | 'ESCALATED';
+
+export interface PlatformComplaint {
+  id: string;
+  tripId?: string;
+  tripName?: string;
+  guideId?: string;
+  guideName?: string;
+  reporterName: string;
+  reporterEmail: string;
+  reporterPhone?: string;
+  reporterRole: 'traveler' | 'guide' | 'public_visitor' | 'other';
+  complaintType: ComplaintType;
+  description: string;
+  evidenceUrl?: string;
+  status: ComplaintStatus;
+  adminNotes?: string;
+  resolutionSummary?: string;
+  resolvedBy?: string;
+  resolvedAt?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface SiteRegulatoryNotice {
+  siteKey: string;
+  nameAr: string;
+  nameEn: string;
+  category: 'ARCHAEOLOGICAL_SITE' | 'MUSEUM' | 'NATURAL_RESERVE' | 'GENERAL_ATTRACTION';
+  requiresOfficialLicensedGuide: boolean;
+  photographyPermitNotice: string; // "تصاريح التصوير التجاري والسينمائي تتطلب موافقة المجلس الأعلى للآثار"
+  officialTicketingNotice: string; // "تخضع الأسعار والمواعيد لضوابط وزارة السياحة والآثار"
+  openingHoursNotice: string;
+  officialSourceUrl: string;
+}
+
+export interface ComplianceReadinessReport {
+  overallReadinessScore: number; // 0-100%
+  statusDistribution: {
+    compliant: number;
+    inReview: number;
+    needsUpdate: number;
+    nonCompliant: number;
+    notApplicable: number;
+  };
+  totalRequirements: number;
+  categories: {
+    category: ComplianceCategory;
+    categoryNameAr: string;
+    total: number;
+    compliant: number;
+    inReview: number;
+    needsUpdate: number;
+    nonCompliant: number;
+    riskLevel: 'LOW' | 'MEDIUM' | 'HIGH' | 'LEGAL_REVIEW_REQUIRED';
+  }[];
+  activeGuidesCount: number;
+  verifiedLicensedGuidesCount: number;
+  pendingVerificationGuidesCount: number;
+  expiringLicensesCount: number;
+  expiredLicensesCount: number;
+  openComplaintsCount: number;
+  legalReviewFlagsCount: number;
+  lastAuditDate: string;
+}
+
+export interface HomepageCustomStats {
+  mode: 'auto' | 'custom';
+  usersCountOverride: number;
+  usersCountDisplay: string;
+  usersCountLabelAr: string;
+  usersCountLabelEn: string;
+  tripsCountOverride: number;
+  tripsCountDisplay: string;
+  tripsCountLabelAr: string;
+  tripsCountLabelEn: string;
+  monumentsCountDisplay: string;
+  monumentsLabelAr: string;
+  monumentsLabelEn: string;
+  satisfactionRateDisplay: string;
+  satisfactionLabelAr: string;
+  satisfactionLabelEn: string;
+  heroTaglineAr?: string;
+  heroTaglineEn?: string;
+  updatedAt?: string;
+}
+
+export interface PublicStatsMetricItem {
+  display: string;
+  labelAr: string;
+  labelEn: string;
+}
+
+export interface PublicStatsResponse {
+  stats: HomepageCustomStats & {
+    effectiveUsersDisplay?: string;
+    effectiveTripsDisplay?: string;
+  };
+  users: PublicStatsMetricItem;
+  trips: PublicStatsMetricItem;
+  monuments: PublicStatsMetricItem;
+  satisfaction: PublicStatsMetricItem;
+  realCounts: {
+    totalUsers: number;
+    totalTrips: number;
+    publishedTrips: number;
+    verifiedGuides: number;
+  };
+}
+

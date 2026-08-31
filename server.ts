@@ -1,7 +1,6 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
 import cookieParser from 'cookie-parser';
-import { createServer as createViteServer } from 'vite';
 
 import { authRouter } from './server/routes/auth';
 import { tripsRouter } from './server/routes/trips';
@@ -38,8 +37,20 @@ async function startServer() {
     });
   });
 
+  // Global Error Handler for API routes
+  app.use((err: any, req: Request, res: Response, next: NextFunction) => {
+    console.error('Unhandled server error:', err);
+    if (res.headersSent) {
+      return next(err);
+    }
+    res.status(err.status || 500).json({
+      error: err.message || 'Internal Server Error',
+    });
+  });
+
   // Vite middleware for development vs static build in production
   if (process.env.NODE_ENV !== 'production') {
+    const { createServer: createViteServer } = await import('vite');
     const vite = await createViteServer({
       server: { middlewareMode: true },
       appType: 'spa',
@@ -53,11 +64,23 @@ async function startServer() {
     });
   }
 
-  app.listen(PORT, '0.0.0.0', () => {
+  const server = app.listen(PORT, '0.0.0.0', () => {
     console.log(`🚀 TOURVIA Server running on http://0.0.0.0:${PORT}`);
   });
+
+  // Graceful shutdown handling
+  const shutdown = () => {
+    console.log('Shutting down TOURVIA server gracefully...');
+    server.close(() => {
+      process.exit(0);
+    });
+  };
+
+  process.on('SIGTERM', shutdown);
+  process.on('SIGINT', shutdown);
 }
 
 startServer().catch(err => {
   console.error('Failed to start TOURVIA server:', err);
+  process.exit(1);
 });

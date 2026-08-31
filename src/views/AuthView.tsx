@@ -19,6 +19,8 @@ import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../i18n/LanguageContext';
 import { api } from '../services/api';
 import { MathChallengeModal } from '../components/MathChallengeModal';
+import { TourviaLogo } from '../components/TourviaLogo';
+import { ProofDocumentUploader } from '../components/ProofDocumentUploader';
 import { WorkingLanguage } from '../types';
 
 interface AuthViewProps {
@@ -215,8 +217,8 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
       <div className="w-full max-w-lg space-y-6">
         {/* Header */}
         <div className="text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-amber-500 text-slate-950 shadow-md">
-            <Compass className="h-7 w-7" />
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-white p-2 shadow-md ring-1 ring-slate-200 dark:bg-[#0B1736] dark:ring-amber-500/20">
+            <TourviaLogo size={52} variant="mark" />
           </div>
           <h2 className="mt-4 text-2xl font-black tracking-tight text-slate-900 dark:text-white">
             {mode === 'login' && t('loginTitle')}
@@ -317,6 +319,58 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
                 <Lock className="h-4 w-4" />
                 <span>{isLoading ? t('loading') : t('ctaGuideLogin')}</span>
               </button>
+
+              {/* Quick Admin & Demo Login Badges */}
+              <div className="rounded-2xl border border-purple-200 bg-purple-50/70 p-3.5 dark:border-purple-900/40 dark:bg-purple-950/30">
+                <div className="flex items-center justify-between pb-2 border-b border-purple-100 dark:border-purple-900/30">
+                  <div className="flex items-center gap-1.5 text-xs font-bold text-purple-950 dark:text-purple-200">
+                    <ShieldCheck className="h-4 w-4 text-purple-600" />
+                    <span>حسابات الوصول السريع التجريبية / الإدارة</span>
+                  </div>
+                  <span className="text-[10px] font-mono text-purple-600 font-bold bg-white dark:bg-slate-900 px-1.5 py-0.5 rounded-md">
+                    PIN: 123456
+                  </span>
+                </div>
+                <div className="mt-2.5 grid grid-cols-1 gap-1.5 sm:grid-cols-2">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIdentifier('mohamedseo2002@gmail.com');
+                      setPin('123456');
+                      setError('');
+                    }}
+                    className="flex flex-col items-start rounded-xl border border-purple-200 bg-white p-2 text-right hover:border-purple-400 hover:bg-purple-50/50 dark:border-slate-800 dark:bg-slate-900 transition-colors"
+                  >
+                    <div className="flex items-center justify-between w-full">
+                      <span className="text-[11px] font-black text-purple-700 dark:text-purple-300">
+                        🛡️ مدير النظام الأساسي (Mohamed)
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-slate-500 truncate w-full">
+                      mohamedseo2002@gmail.com
+                    </span>
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIdentifier('tamer.guide@tourvia.app');
+                      setPin('123456');
+                      setError('');
+                    }}
+                    className="flex flex-col items-start rounded-xl border border-amber-200 bg-white p-2 text-right hover:border-amber-400 hover:bg-amber-50/50 dark:border-slate-800 dark:bg-slate-900 transition-colors"
+                  >
+                    <div className="flex items-center justify-between w-full">
+                      <span className="text-[11px] font-black text-amber-700 dark:text-amber-300">
+                        🧭 مرشد سياحي معتمد (تامر)
+                      </span>
+                    </div>
+                    <span className="text-[10px] font-mono text-slate-500 truncate w-full">
+                      tamer.guide@tourvia.app
+                    </span>
+                  </button>
+                </div>
+              </div>
 
               <div className="pt-2 text-center">
                 <button
@@ -465,20 +519,13 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
                 </div>
               </div>
 
-              {/* Tourism Proof Document Input */}
-              <div>
-                <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
-                  {t('tourismProof')} (رابط أو صورة الكارنيه)
-                </label>
-                <input
-                  type="url"
-                  value={proofDocumentUrl}
-                  onChange={e => setProofDocumentUrl(e.target.value)}
-                  placeholder="https://... (رابط صورة كارنيه النقابة أو الترخيص)"
-                  className="mt-1 block w-full rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs text-slate-900 shadow-2xs focus:border-amber-500 focus:outline-hidden dark:border-slate-700 dark:bg-slate-800 dark:text-white"
-                />
-                <p className="mt-1 text-[10px] text-slate-400">{t('tourismProofHint')}</p>
-              </div>
+              {/* Tourism Proof Document Uploader */}
+              <ProofDocumentUploader
+                value={proofDocumentUrl}
+                onChange={setProofDocumentUrl}
+                label={t('tourismProof')}
+                hint={t('tourismProofHint')}
+              />
 
               <button
                 type="submit"

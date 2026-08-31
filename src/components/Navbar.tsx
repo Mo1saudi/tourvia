@@ -15,21 +15,29 @@ import {
   Menu,
   X,
   CheckCircle2,
+  Sun,
+  Moon,
+  ArrowRight,
 } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../i18n/LanguageContext';
+import { useTheme } from '../context/ThemeContext';
 import { api } from '../services/api';
 import { NotificationItem, WorkingLanguage } from '../types';
+import { TourviaLogo } from './TourviaLogo';
 
 interface NavbarProps {
   currentView: string;
-  onNavigate: (view: string) => void;
+  onNavigate: (view: string, targetId?: string) => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
   const { user, subscription, aiUsage, unreadNotificationsCount, isAuthenticated, isAdmin, logout } = useAuth();
   const { language, setLanguage, isRtl, t, availableLanguages } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
 
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('home');
   const [isLangOpen, setIsLangOpen] = useState(false);
   const [isNotifOpen, setIsNotifOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
@@ -41,6 +49,31 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
   const langRef = useRef<HTMLDivElement>(null);
   const notifRef = useRef<HTMLDivElement>(null);
   const userRef = useRef<HTMLDivElement>(null);
+
+  // Scroll detection for compact header and section spy
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+
+      // Simple section spy on landing page
+      if (currentView === 'landing') {
+        const sections = ['about', 'plans', 'programs', 'hero'];
+        for (const sec of sections) {
+          const el = document.getElementById(sec);
+          if (el) {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= 160 && rect.bottom >= 100) {
+              setActiveSection(sec === 'hero' ? 'home' : sec);
+              break;
+            }
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [currentView]);
 
   // Close dropdowns on outside click
   useEffect(() => {
@@ -87,6 +120,25 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
     }
   };
 
+  const scrollToSection = (sectionId: string) => {
+    if (currentView !== 'landing') {
+      onNavigate('landing');
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      const el = document.getElementById(sectionId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+    setActiveSection(sectionId === 'hero' ? 'home' : sectionId);
+    setIsMobileMenuOpen(false);
+  };
+
   // Calculate remaining AI credits
   const isUnlimitedAi = subscription?.planCode === 'PREMIUM' || aiUsage?.isUnlimited;
   const remainingAi = aiUsage
@@ -95,30 +147,44 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
   const totalLimit = aiUsage?.currentPlanAiLimit || aiUsage?.lifetimeLimit || 3;
 
   return (
-    <nav id="app-main-navbar" className="sticky top-0 z-40 border-b border-slate-200 bg-white/95 backdrop-blur-md dark:border-slate-800 dark:bg-slate-900/95">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Brand Logo & Name */}
-        <div className="flex items-center gap-6">
+    <nav
+      id="app-main-navbar"
+      className={`sticky top-0 z-40 transition-all duration-200 border-b ${
+        isScrolled
+          ? 'py-2 border-slate-200/90 bg-white/95 backdrop-blur-md shadow-sm dark:border-slate-800/90 dark:bg-slate-900/95'
+          : 'py-3.5 border-slate-200/80 bg-white/90 backdrop-blur-sm dark:border-slate-800/80 dark:bg-slate-900/90'
+      }`}
+    >
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        
+        {/* Left: Brand Logo & Navigation Links */}
+        <div className="flex items-center gap-6 lg:gap-8">
           <button
             type="button"
-            onClick={() => onNavigate(isAuthenticated ? 'dashboard' : 'landing')}
-            className="flex items-center gap-2.5 text-left focus:outline-hidden"
+            onClick={() => {
+              if (isAuthenticated) {
+                onNavigate('dashboard');
+              } else {
+                scrollToSection('hero');
+              }
+            }}
+            className="flex items-center gap-2.5 text-left focus:outline-hidden group"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-tr from-amber-600 to-amber-400 text-slate-950 shadow-md shadow-amber-500/20">
-              <Compass className="h-6 w-6 stroke-[2.2]" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white p-1 shadow-sm ring-1 ring-slate-200/80 transition-transform group-hover:scale-105 dark:bg-[#0B1736] dark:ring-amber-500/20">
+              <TourviaLogo size={34} variant="mark" />
             </div>
             <div>
-              <span className="font-sans text-xl font-black tracking-tight text-slate-950 dark:text-white">
+              <span className="font-heading text-xl font-black tracking-tight text-[#0B1736] dark:text-white">
                 TOUR<span className="text-amber-500">VIA</span>
               </span>
-              <span className="block text-[10px] font-semibold text-slate-400 dark:text-slate-500">
+              <span className="block text-[10px] font-bold text-slate-400 dark:text-slate-400 tracking-wider">
                 AI TOUR GUIDE SaaS
               </span>
             </div>
           </button>
 
-          {/* Desktop Nav Links */}
-          {isAuthenticated && (
+          {/* Desktop Nav Links for Authenticated Users */}
+          {isAuthenticated ? (
             <div className="hidden md:flex md:items-center md:gap-1">
               <button
                 type="button"
@@ -192,11 +258,59 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                 </button>
               )}
             </div>
+          ) : (
+            /* Desktop Public Navigation Links: الرئيسية, البرامج, الخطط, من نحن */
+            <div className="hidden md:flex md:items-center md:gap-1">
+              <button
+                type="button"
+                onClick={() => scrollToSection('hero')}
+                className={`rounded-xl px-3.5 py-2 text-xs font-bold transition-all ${
+                  activeSection === 'home'
+                    ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-300 font-black'
+                    : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800'
+                }`}
+              >
+                {t('navHome')}
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollToSection('programs')}
+                className={`rounded-xl px-3.5 py-2 text-xs font-bold transition-all ${
+                  activeSection === 'programs'
+                    ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-300 font-black'
+                    : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800'
+                }`}
+              >
+                {t('navPrograms')}
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollToSection('plans')}
+                className={`rounded-xl px-3.5 py-2 text-xs font-bold transition-all ${
+                  activeSection === 'plans'
+                    ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-300 font-black'
+                    : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800'
+                }`}
+              >
+                {t('navPlans')}
+              </button>
+              <button
+                type="button"
+                onClick={() => scrollToSection('about')}
+                className={`rounded-xl px-3.5 py-2 text-xs font-bold transition-all ${
+                  activeSection === 'about'
+                    ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/50 dark:text-amber-300 font-black'
+                    : 'text-slate-600 hover:bg-slate-100/70 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800'
+                }`}
+              >
+                {t('navAbout')}
+              </button>
+            </div>
           )}
         </div>
 
-        {/* Right Actions */}
-        <div className="flex items-center gap-2.5 sm:gap-3">
+        {/* Right: Controls & CTAs */}
+        <div className="flex items-center gap-2 sm:gap-2.5">
           {/* AI Quota Pill (if logged in) */}
           {isAuthenticated && (
             <button
@@ -211,6 +325,21 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
               </span>
             </button>
           )}
+
+          {/* Theme Toggle Button */}
+          <button
+            type="button"
+            onClick={toggleTheme}
+            className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-slate-50/80 text-slate-700 hover:bg-slate-100 hover:text-amber-600 transition-colors dark:border-slate-700 dark:bg-slate-800 dark:text-slate-300 dark:hover:text-amber-400"
+            title={t('themeToggle')}
+            aria-label={t('themeToggle')}
+          >
+            {theme === 'dark' ? (
+              <Sun className="h-4 w-4 text-amber-400 hover:rotate-45 transition-transform" />
+            ) : (
+              <Moon className="h-4 w-4 text-slate-600 dark:text-slate-300 hover:-rotate-12 transition-transform" />
+            )}
+          </button>
 
           {/* Language Selector Dropdown */}
           <div className="relative" ref={langRef}>
@@ -333,7 +462,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
             </div>
           )}
 
-          {/* User Profile or Login CTA */}
+          {/* User Profile or Public Visitor CTAs */}
           {isAuthenticated ? (
             <div className="relative" ref={userRef}>
               <button
@@ -397,6 +526,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                       <CreditCard className="h-4 w-4 text-slate-400" />
                       <span>{t('navSubscriptions')}</span>
                     </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        toggleTheme();
+                        setIsUserMenuOpen(false);
+                      }}
+                      className="flex w-full items-center justify-between rounded-lg px-3 py-2 text-xs font-medium text-slate-700 hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800"
+                    >
+                      <div className="flex items-center gap-2">
+                        {theme === 'dark' ? <Sun className="h-4 w-4 text-amber-400" /> : <Moon className="h-4 w-4 text-slate-400" />}
+                        <span>{t('themeToggle')}</span>
+                      </div>
+                      <span className="text-[10px] font-bold uppercase text-amber-600 dark:text-amber-400">
+                        {theme === 'dark' ? t('themeDark') : t('themeLight')}
+                      </span>
+                    </button>
                     {isAdmin && (
                       <button
                         type="button"
@@ -430,21 +575,22 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
               )}
             </div>
           ) : (
+            /* Visitor Action CTAs: دخول المرشدين + ابدأ الآن */
             <div className="flex items-center gap-2">
               <button
                 type="button"
                 onClick={() => onNavigate('auth_login')}
-                className="rounded-xl px-3.5 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800"
+                className="hidden sm:inline-flex rounded-xl px-3.5 py-2 text-xs font-bold text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800 transition-colors"
               >
                 {t('ctaGuideLogin')}
               </button>
               <button
                 type="button"
                 onClick={() => onNavigate('auth_register')}
-                className="flex items-center gap-1 rounded-xl bg-amber-500 px-4 py-2 text-xs font-extrabold text-slate-950 shadow-md transition-transform hover:scale-102 hover:bg-amber-400"
+                className="flex items-center gap-1.5 rounded-xl bg-amber-500 px-4 py-2 text-xs font-black text-slate-950 shadow-md shadow-amber-500/20 transition-all hover:bg-amber-400 hover:scale-102"
               >
                 <Sparkles className="h-3.5 w-3.5" />
-                <span>{t('ctaRegister')}</span>
+                <span>{t('ctaStartNow')}</span>
               </button>
             </div>
           )}
@@ -454,6 +600,7 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
             type="button"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className="flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 text-slate-700 md:hidden dark:border-slate-700 dark:text-slate-300"
+            aria-label="Toggle Mobile Menu"
           >
             {isMobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -462,9 +609,32 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
 
       {/* Mobile Drawer Menu */}
       {isMobileMenuOpen && (
-        <div className="border-b border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900 md:hidden">
+        <div className="border-b border-slate-200 bg-white p-4 dark:border-slate-800 dark:bg-slate-900 md:hidden animate-in slide-in-from-top duration-200">
+          <div className="mb-3 flex items-center justify-between border-b border-slate-100 pb-3 dark:border-slate-800">
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400">
+              {t('appAppearance')}
+            </span>
+            <button
+              type="button"
+              onClick={toggleTheme}
+              className="flex items-center gap-1.5 rounded-xl border border-slate-200 bg-slate-50 px-3 py-1.5 text-xs font-bold text-slate-800 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200"
+            >
+              {theme === 'dark' ? (
+                <>
+                  <Sun className="h-4 w-4 text-amber-400" />
+                  <span>{t('themeDark')}</span>
+                </>
+              ) : (
+                <>
+                  <Moon className="h-4 w-4 text-slate-600" />
+                  <span>{t('themeLight')}</span>
+                </>
+              )}
+            </button>
+          </div>
+
           {isAuthenticated ? (
-            <div className="space-y-2">
+            <div className="space-y-1.5">
               <button
                 type="button"
                 onClick={() => {
@@ -530,13 +700,44 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
             </div>
           ) : (
             <div className="space-y-2">
+              <div className="space-y-1 pb-2 border-b border-slate-100 dark:border-slate-800">
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('hero')}
+                  className="block w-full rounded-lg px-3 py-2 text-left text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+                >
+                  {t('navHome')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('programs')}
+                  className="block w-full rounded-lg px-3 py-2 text-left text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+                >
+                  {t('navPrograms')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('plans')}
+                  className="block w-full rounded-lg px-3 py-2 text-left text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+                >
+                  {t('navPlans')}
+                </button>
+                <button
+                  type="button"
+                  onClick={() => scrollToSection('about')}
+                  className="block w-full rounded-lg px-3 py-2 text-left text-xs font-bold text-slate-800 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800"
+                >
+                  {t('navAbout')}
+                </button>
+              </div>
+
               <button
                 type="button"
                 onClick={() => {
                   onNavigate('auth_login');
                   setIsMobileMenuOpen(false);
                 }}
-                className="block w-full rounded-lg bg-slate-100 py-2.5 text-center text-xs font-bold text-slate-900 dark:bg-slate-800 dark:text-white"
+                className="block w-full rounded-xl bg-slate-100 py-2.5 text-center text-xs font-bold text-slate-900 dark:bg-slate-800 dark:text-white"
               >
                 {t('ctaGuideLogin')}
               </button>
@@ -546,9 +747,10 @@ export const Navbar: React.FC<NavbarProps> = ({ currentView, onNavigate }) => {
                   onNavigate('auth_register');
                   setIsMobileMenuOpen(false);
                 }}
-                className="block w-full rounded-lg bg-amber-500 py-2.5 text-center text-xs font-bold text-slate-950"
+                className="flex w-full items-center justify-center gap-1.5 rounded-xl bg-amber-500 py-2.5 text-center text-xs font-black text-slate-950 shadow-md"
               >
-                {t('ctaRegister')}
+                <Sparkles className="h-3.5 w-3.5" />
+                <span>{t('ctaStartNow')}</span>
               </button>
             </div>
           )}

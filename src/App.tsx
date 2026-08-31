@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { LanguageProvider, useLanguage } from './i18n/LanguageContext';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { VerificationBanner } from './components/VerificationBanner';
 import { LandingView } from './views/LandingView';
@@ -10,6 +11,7 @@ import { TripsListView } from './views/TripsListView';
 import { TripBuilderView } from './views/TripBuilderView';
 import { PublicTripView } from './views/PublicTripView';
 import { PresentationView } from './views/PresentationView';
+import { TourviaLogo } from './components/TourviaLogo';
 import { SubscriptionsView } from './views/SubscriptionsView';
 import { AnalyticsView } from './views/AnalyticsView';
 import { AdminView } from './views/AdminView';
@@ -207,10 +209,11 @@ const MainAppContent: React.FC = () => {
       </main>
 
       {/* Global Footer */}
-      <footer className="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
+      <footer className="border-t border-slate-200 bg-white py-6 text-center text-xs text-slate-500 dark:border-slate-800 dark:bg-[#070E22] dark:text-slate-400">
         <div className="mx-auto max-w-7xl px-4 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <div className="flex items-center gap-2">
-            <span className="font-black text-slate-900 dark:text-white">TOURVIA</span>
+          <div className="flex items-center gap-2.5">
+            <TourviaLogo size={24} variant="mark" />
+            <span className="font-heading font-black text-slate-900 dark:text-white">TOURVIA</span>
             <span>— المنصة السحابية المتكاملة للمرشدين السياحيين ووكالات السفر</span>
           </div>
           <div className="flex items-center gap-4 text-[11px]">
@@ -228,10 +231,12 @@ const MainAppContent: React.FC = () => {
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <AuthProvider>
-        <MainAppContent />
-      </AuthProvider>
-    </LanguageProvider>
+    <ThemeProvider>
+      <LanguageProvider>
+        <AuthProvider>
+          <MainAppContent />
+        </AuthProvider>
+      </LanguageProvider>
+    </ThemeProvider>
   );
 }

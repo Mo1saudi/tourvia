@@ -13,7 +13,9 @@ import {
   AdminAiSettings,
   AuditLogItem,
   Campaign,
-  PublicTripPayload
+  PublicTripPayload,
+  HomepageCustomStats,
+  PublicStatsResponse
 } from '../types';
 
 class ApiService {
@@ -372,6 +374,147 @@ class ApiService {
   public async getAdminAuditLogs(): Promise<{ auditLogs: AuditLogItem[] }> {
     return this.request('/api/admin/audit-logs');
   }
+
+  public async getAdminTrips(params?: any): Promise<{ trips: any[] }> {
+    const query = new URLSearchParams(params || {}).toString();
+    return this.request(`/api/admin/trips?${query}`);
+  }
+
+  public async toggleArchiveAdminTrip(id: string): Promise<{ trip: any; message: string }> {
+    return this.request(`/api/admin/trips/${id}/toggle-archive`, { method: 'POST' });
+  }
+
+  public async getAdminPlans(): Promise<{ plans: any[] }> {
+    return this.request('/api/admin/plans');
+  }
+
+  public async getAdminAiUsage(): Promise<{ totalGenerations: number; usersWithUsage: number; settings: any; recentGenerations: any[] }> {
+    return this.request('/api/admin/ai-usage');
+  }
+
+  public async updateAdminUser(id: string, payload: any): Promise<{ user: User; message: string }> {
+    return this.request(`/api/admin/users/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(payload),
+    });
+  }
+
+  // Compliance Center & Regulatory Readiness
+  public async getComplianceOverview(): Promise<{
+    report: any;
+    recentComplaints: any[];
+    recentUpdates: any[];
+    siteNoticesCount: number;
+    retentionSettings: any;
+  }> {
+    return this.request('/api/admin/compliance/overview');
+  }
+
+  public async getComplianceRequirements(params?: { category?: string; status?: string }): Promise<{ requirements: any[] }> {
+    const query = new URLSearchParams();
+    if (params?.category) query.append('category', params.category);
+    if (params?.status) query.append('status', params.status);
+    return this.request(`/api/admin/compliance/requirements?${query.toString()}`);
+  }
+
+  public async updateComplianceRequirement(id: string, payload: any): Promise<{ requirement: any; message: string }> {
+    return this.request(`/api/admin/compliance/requirements/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(payload),
+    });
+  }
+
+  public async getRegulatoryUpdates(): Promise<{ updates: any[] }> {
+    return this.request('/api/admin/compliance/regulatory-updates');
+  }
+
+  public async createRegulatoryUpdate(payload: any): Promise<{ update: any; message: string }> {
+    return this.request('/api/admin/compliance/regulatory-updates', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
+  }
+
+  public async updateRegulatoryUpdate(id: string, payload: any): Promise<{ update: any; message: string }> {
+    return this.request(`/api/admin/compliance/regulatory-updates/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(payload),
+    });
+  }
+
+  public async deleteRegulatoryUpdate(id: string): Promise<{ message: string }> {
+    return this.request(`/api/admin/compliance/regulatory-updates/${id}`, {
+      method: 'DELETE',
+    });
+  }
+
+  public async getAdminComplaints(params?: { status?: string; type?: string }): Promise<{ complaints: any[] }> {
+    const query = new URLSearchParams();
+    if (params?.status) query.append('status', params.status);
+    if (params?.type) query.append('type', params.type);
+    return this.request(`/api/admin/compliance/complaints?${query.toString()}`);
+  }
+
+  public async updateAdminComplaint(id: string, payload: any): Promise<{ complaint: any; message: string }> {
+    return this.request(`/api/admin/compliance/complaints/${id}`, {
+      method: 'PUT',
+      body: JSON.stringify(payload),
+    });
+  }
+
+  public async verifyGuideLicense(id: string, payload: any): Promise<{ user: User; message: string }> {
+    return this.request(`/api/admin/compliance/users/${id}/verify-license`, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
+  }
+
+  public async getSiteRegulatoryNotices(): Promise<{ siteNotices: any[] }> {
+    return this.request('/api/admin/compliance/site-notices');
+  }
+
+  public async updateSiteRegulatoryNotice(key: string, payload: any): Promise<{ notice: any; message: string }> {
+    return this.request(`/api/admin/compliance/site-notices/${key}`, {
+      method: 'PUT',
+      body: JSON.stringify(payload),
+    });
+  }
+
+  public async purgeRetentionDocs(): Promise<{ purgedCount: number; lastPurgeRunAt: string; message: string }> {
+    return this.request('/api/admin/compliance/purge-retention-docs', {
+      method: 'POST',
+    });
+  }
+
+  public async submitPublicComplaint(token: string, payload: any): Promise<{ success: boolean; complaintId: string; message: string }> {
+    return this.request(`/api/public/trip/${token}/complaint`, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
+  }
+
+  // Homepage Stats & Configuration
+  public async getPublicStats(): Promise<PublicStatsResponse> {
+    return this.request<PublicStatsResponse>('/api/public/stats');
+  }
+
+  public async getAdminHomepageStats(): Promise<{ stats: HomepageCustomStats; realCounts: { totalUsers: number; totalTrips: number; publishedTrips: number; verifiedGuides: number } }> {
+    return this.request('/api/admin/homepage-stats');
+  }
+
+  public async updateAdminHomepageStats(stats: Partial<HomepageCustomStats>): Promise<{ stats: HomepageCustomStats; realCounts: any; message: string }> {
+    return this.request('/api/admin/homepage-stats', {
+      method: 'PUT',
+      body: JSON.stringify(stats),
+    });
+  }
+
+  public async clearAllMockData(): Promise<{ success: boolean; removedUsers: number; removedTrips: number; message: string }> {
+    return this.request('/api/admin/clear-mock-data', {
+      method: 'POST',
+    });
+  }
 }
 
 export const api = new ApiService();
+
