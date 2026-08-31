@@ -22,6 +22,7 @@ import { useLanguage } from '../i18n/LanguageContext';
 import { TourviaLogo } from '../components/TourviaLogo';
 import { CustomerLinkFlow } from '../components/landing/CustomerLinkFlow';
 import { ProgramsPreviewSection } from '../components/landing/ProgramsPreviewSection';
+import { AvailableToursSection } from '../components/landing/AvailableToursSection';
 import { ProductSlideshow } from '../components/landing/ProductSlideshow';
 import { HomepagePlansSection } from '../components/landing/HomepagePlansSection';
 import { AboutTourviaSection } from '../components/landing/AboutTourviaSection';
@@ -236,7 +237,10 @@ export const LandingView: React.FC<LandingViewProps> = ({ onNavigate }) => {
         </div>
       </section>
 
-      {/* 2. Customer Link Workflow: Guide -> TOURVIA -> Live Client Link -> Traveler */}
+      {/* 2. Explore Available Tours (Search by Location or Interest) */}
+      <AvailableToursSection onNavigate={onNavigate} />
+
+      {/* 3. Customer Link Workflow: Guide -> TOURVIA -> Live Client Link -> Traveler */}
       <CustomerLinkFlow onNavigate={onNavigate} />
 
       {/* 3. Programs Preview Section ("شوف تجربة البرنامج بنفسك") */}
@@ -245,7 +249,7 @@ export const LandingView: React.FC<LandingViewProps> = ({ onNavigate }) => {
       {/* 4. Product Showcase Slideshow */}
       <ProductSlideshow onNavigate={onNavigate} />
 
-      {/* 5. Core Feature Highlights Grid */}
+      {/* 6. Core Feature Highlights Grid */}
       <section className="border-t border-slate-200 bg-white py-16 dark:border-slate-800 dark:bg-slate-900/50">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto">
@@ -457,7 +461,7 @@ export const LandingView: React.FC<LandingViewProps> = ({ onNavigate }) => {
       {/* 8. About TOURVIA Section ("عن TOURVIA") */}
       <AboutTourviaSection onNavigate={onNavigate} stats={publicStats} />
 
-      {/* 9. Final Call to Action */}
+      {/* 10. Final Call to Action */}
       <section className="border-t border-slate-200 bg-gradient-to-b from-amber-500/10 to-amber-500/5 py-16 dark:border-slate-800 dark:from-amber-950/20 dark:to-slate-950">
         <div className="mx-auto max-w-4xl px-4 text-center">
           <h2 className="text-2xl sm:text-3xl font-black text-slate-950 dark:text-white">

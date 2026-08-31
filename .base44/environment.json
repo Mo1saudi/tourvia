@@ -1,0 +1,12 @@
+{
+  "previewPort": 3000,
+  "healthPath": "/api/health",
+  "startCommand": "docker compose -f docker-compose.base44.yml up -d",
+  "secrets": [
+    {
+      "name": "GEMINI_API_KEY",
+      "description": "Google Gemini API key for AI itinerary generation. Optional — app boots without it (falls back to a built-in local generator), but real AI trip features need it. Obtain from Google AI Studio (aistudio.google.com).",
+      "requiredAtBoot": false
+    }
+  ]
+}
