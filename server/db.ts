@@ -736,7 +736,10 @@ class Database {
           existingAdmin.role = 'admin';
           existingAdmin.accountType = 'admin';
           existingAdmin.verificationStatus = 'VERIFIED';
-          this.db.userPins[existingAdmin.id] = hashPin('123456');
+          // Only set PIN if not already set (don't override on every restart)
+          if (!this.db.userPins[existingAdmin.id]) {
+            this.db.userPins[existingAdmin.id] = hashPin('123456');
+          }
         } else {
           this.db.users.unshift(INITIAL_PRIMARY_ADMIN);
           this.db.userPins[INITIAL_PRIMARY_ADMIN.id] = hashPin('123456');
@@ -747,7 +750,10 @@ class Database {
           masterAdmin.role = 'admin';
           masterAdmin.accountType = 'admin';
           masterAdmin.verificationStatus = 'VERIFIED';
-          this.db.userPins[masterAdmin.id] = hashPin('123456');
+          // Only set PIN if not already set (don't override on every restart)
+          if (!this.db.userPins[masterAdmin.id]) {
+            this.db.userPins[masterAdmin.id] = hashPin('123456');
+          }
         } else {
           this.db.users.push(INITIAL_ADMIN);
           this.db.userPins[INITIAL_ADMIN.id] = hashPin('123456');

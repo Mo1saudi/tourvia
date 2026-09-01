@@ -261,7 +261,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
                     required
                     value={identifier}
                     onChange={e => setIdentifier(e.target.value)}
-                    placeholder="tamer.guide@tourvia.app أو 01012345678"
+                    placeholder="بريدك الإلكتروني أو رقم الهاتف"
                     className="block w-full rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-xs text-slate-900 shadow-2xs focus:border-amber-500 focus:outline-hidden focus:ring-2 focus:ring-amber-500/20 dark:border-slate-700 dark:bg-slate-800 dark:text-white"
                   />
                 </div>
@@ -319,58 +319,6 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
                 <Lock className="h-4 w-4" />
                 <span>{isLoading ? t('loading') : t('ctaGuideLogin')}</span>
               </button>
-
-              {/* Quick Admin & Demo Login Badges */}
-              <div className="rounded-2xl border border-purple-200 bg-purple-50/70 p-3.5 dark:border-purple-900/40 dark:bg-purple-950/30">
-                <div className="flex items-center justify-between pb-2 border-b border-purple-100 dark:border-purple-900/30">
-                  <div className="flex items-center gap-1.5 text-xs font-bold text-purple-950 dark:text-purple-200">
-                    <ShieldCheck className="h-4 w-4 text-purple-600" />
-                    <span>حسابات الوصول السريع التجريبية / الإدارة</span>
-                  </div>
-                  <span className="text-[10px] font-mono text-purple-600 font-bold bg-white dark:bg-slate-900 px-1.5 py-0.5 rounded-md">
-                    PIN: 123456
-                  </span>
-                </div>
-                <div className="mt-2.5 grid grid-cols-1 gap-1.5 sm:grid-cols-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIdentifier('mohamedseo2002@gmail.com');
-                      setPin('123456');
-                      setError('');
-                    }}
-                    className="flex flex-col items-start rounded-xl border border-purple-200 bg-white p-2 text-right hover:border-purple-400 hover:bg-purple-50/50 dark:border-slate-800 dark:bg-slate-900 transition-colors"
-                  >
-                    <div className="flex items-center justify-between w-full">
-                      <span className="text-[11px] font-black text-purple-700 dark:text-purple-300">
-                        🛡️ مدير النظام الأساسي (Mohamed)
-                      </span>
-                    </div>
-                    <span className="text-[10px] font-mono text-slate-500 truncate w-full">
-                      mohamedseo2002@gmail.com
-                    </span>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIdentifier('tamer.guide@tourvia.app');
-                      setPin('123456');
-                      setError('');
-                    }}
-                    className="flex flex-col items-start rounded-xl border border-amber-200 bg-white p-2 text-right hover:border-amber-400 hover:bg-amber-50/50 dark:border-slate-800 dark:bg-slate-900 transition-colors"
-                  >
-                    <div className="flex items-center justify-between w-full">
-                      <span className="text-[11px] font-black text-amber-700 dark:text-amber-300">
-                        🧭 مرشد سياحي معتمد (تامر)
-                      </span>
-                    </div>
-                    <span className="text-[10px] font-mono text-slate-500 truncate w-full">
-                      tamer.guide@tourvia.app
-                    </span>
-                  </button>
-                </div>
-              </div>
 
               <div className="pt-2 text-center">
                 <button

@@ -160,85 +160,96 @@ authRouter.post('/register', (req: Request, res: Response) => {
 
 // 3. Login
 authRouter.post('/login', (req: Request, res: Response) => {
-  const { identifier, pin, mathChallengeId, mathAnswer, rememberDevice } = req.body;
+  try {
+    const { identifier, pin, mathChallengeId, mathAnswer, rememberDevice } = req.body;
 
-  // Validate Math Challenge
-  if (!verifyMathChallenge(mathChallengeId, mathAnswer)) {
-    res.status(400).json({
-      error: 'SECURITY_CHALLENGE_FAILED',
-      message: 'Math verification failed or expired. Please solve the new challenge.',
-      newChallenge: generateMathChallenge(),
+    // Validate Math Challenge
+    if (!verifyMathChallenge(mathChallengeId, mathAnswer)) {
+      res.status(400).json({
+        error: 'SECURITY_CHALLENGE_FAILED',
+        message: 'التحقق الأمني فشل أو انتهت صلاحيته. يرجى حل المسألة الجديدة.',
+        newChallenge: generateMathChallenge(),
+      });
+      return;
+    }
+
+    if (!identifier || !pin) {
+      res.status(400).json({ error: 'يرجى إدخال البريد الإلكتروني أو الهاتف والرمز السري.' });
+      return;
+    }
+
+    const cleanId = String(identifier).trim().toLowerCase();
+    const normalizedPin = String(pin).replace(/[٠-٩]/g, d => '0123456789'['٠١٢٣٤٥٦٧٨٩'.indexOf(d)]);
+    const user = db.users.find(u => u.email.toLowerCase() === cleanId || u.phone === cleanId);
+
+    if (!user) {
+      res.status(401).json({ error: 'البريد الإلكتروني أو الرمز السري غير صحيح.' });
+      return;
+    }
+
+    const expectedHash = db.userPins[user.id];
+    if (!expectedHash) {
+      console.error('[LOGIN] No PIN hash found for user:', user.id);
+      res.status(500).json({ error: 'حدث خطأ في حساب المستخدم. يرجى التواصل مع الدعم.' });
+      return;
+    }
+
+    const actualHash = hashPin(normalizedPin);
+
+    if (expectedHash !== actualHash) {
+      res.status(401).json({ error: 'البريد الإلكتروني أو الرمز السري غير صحيح.' });
+      return;
+    }
+
+    const session = createSession(user.id);
+    res.cookie('tourvia_token', session.token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      maxAge: rememberDevice ? 90 * 86400 * 1000 : 30 * 86400 * 1000,
+      sameSite: 'lax',
     });
-    return;
+
+    // Log audit
+    db.auditLogs.push({
+      id: `log_${generateSecureToken('l')}`,
+      userId: user.id,
+      userEmail: user.email,
+      action: 'USER_LOGIN',
+      details: `User logged in from ${req.ip || 'web'}.`,
+      timestamp: new Date().toISOString(),
+    });
+    saveDb();
+
+    const subscription = db.subscriptions.find(s => s.userId === user.id && s.status === 'ACTIVE') || {
+      id: 'sub_default',
+      userId: user.id,
+      planId: 'plan_free',
+      planCode: 'FREE',
+      status: 'ACTIVE',
+      startDate: user.createdAt,
+      amountPaid: 0,
+      currency: 'EGP',
+    };
+
+    const aiUsage = db.aiUsage[user.id] || {
+      userId: user.id,
+      lifetimeUsed: 0,
+      lifetimeLimit: 3,
+      currentPlanAiLimit: 3,
+      isUnlimited: false,
+      history: [],
+    };
+
+    res.json({
+      user,
+      token: session.token,
+      subscription,
+      aiUsage,
+    });
+  } catch (err) {
+    console.error('[LOGIN] Unexpected error:', err);
+    res.status(500).json({ error: 'حدث خطأ مؤقت أثناء تسجيل الدخول. يرجى المحاولة مرة أخرى.' });
   }
-
-  if (!identifier || !pin) {
-    res.status(400).json({ error: 'Please provide email/phone and 6-digit PIN.' });
-    return;
-  }
-
-  const cleanId = String(identifier).trim().toLowerCase();
-  const normalizedPin = String(pin).replace(/[٠-٩]/g, d => '0123456789'['٠١٢٣٤٥٦٧٨٩'.indexOf(d)]);
-  const user = db.users.find(u => u.email.toLowerCase() === cleanId || u.phone === cleanId);
-
-  if (!user) {
-    res.status(401).json({ error: 'Invalid email/phone or security PIN.' });
-    return;
-  }
-
-  const expectedHash = db.userPins[user.id];
-  const actualHash = hashPin(normalizedPin);
-
-  if (expectedHash !== actualHash) {
-    res.status(401).json({ error: 'Invalid email/phone or security PIN.' });
-    return;
-  }
-
-  const session = createSession(user.id);
-  res.cookie('tourvia_token', session.token, {
-    httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    maxAge: rememberDevice ? 90 * 86400 * 1000 : 30 * 86400 * 1000,
-    sameSite: 'lax',
-  });
-
-  // Log audit
-  db.auditLogs.push({
-    id: `log_${generateSecureToken('l')}`,
-    userId: user.id,
-    userEmail: user.email,
-    action: 'USER_LOGIN',
-    details: `User logged in from ${req.ip || 'web'}.`,
-    timestamp: new Date().toISOString(),
-  });
-  saveDb();
-
-  const subscription = db.subscriptions.find(s => s.userId === user.id && s.status === 'ACTIVE') || {
-    id: 'sub_default',
-    userId: user.id,
-    planId: 'plan_free',
-    planCode: 'FREE',
-    status: 'ACTIVE',
-    startDate: user.createdAt,
-    amountPaid: 0,
-    currency: 'EGP',
-  };
-
-  const aiUsage = db.aiUsage[user.id] || {
-    userId: user.id,
-    lifetimeUsed: 0,
-    lifetimeLimit: 3,
-    currentPlanAiLimit: 3,
-    isUnlimited: false,
-    history: [],
-  };
-
-  res.json({
-    user,
-    token: session.token,
-    subscription,
-    aiUsage,
-  });
 });
 
 // 4. Current User info

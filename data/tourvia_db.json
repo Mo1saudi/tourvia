@@ -39,9 +39,17 @@
     "usr_guide_tamer": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87"
   },
   "sessions": {
-    "sess_f3c3e561a858b28e1b409f8d43968162": {
+    "sess_10f922d7b9d54f6009e87e5591a9a7b5": {
       "userId": "usr_admin_mohamed",
-      "expiresAt": 1790774329755
+      "expiresAt": 1790861489942
+    },
+    "sess_b285ea143939be085341c8c77de9caa6": {
+      "userId": "usr_admin_mohamed",
+      "expiresAt": 1790861750380
+    },
+    "sess_4f8c4479bb46ed95910b438393b95895": {
+      "userId": "usr_admin_mohamed",
+      "expiresAt": 1790861938028
     }
   },
   "trips": [],
@@ -303,6 +311,30 @@
       "action": "USER_LOGIN",
       "details": "User logged in from 10.12.0.40.",
       "timestamp": "2026-08-31T13:18:49.756Z"
+    },
+    {
+      "id": "log_l_3802d2b20af25b8f7d9ead120b1de7d7",
+      "userId": "usr_admin_mohamed",
+      "userEmail": "mohamedseo2002@gmail.com",
+      "action": "USER_LOGIN",
+      "details": "User logged in from 10.12.0.64.",
+      "timestamp": "2026-09-01T13:31:29.942Z"
+    },
+    {
+      "id": "log_l_9ede79efe429cf24ae71ba657b0e0ba2",
+      "userId": "usr_admin_mohamed",
+      "userEmail": "mohamedseo2002@gmail.com",
+      "action": "USER_LOGIN",
+      "details": "User logged in from 172.18.0.1.",
+      "timestamp": "2026-09-01T13:35:50.381Z"
+    },
+    {
+      "id": "log_l_59b6588ba02ef0621967868dcc261b00",
+      "userId": "usr_admin_mohamed",
+      "userEmail": "mohamedseo2002@gmail.com",
+      "action": "USER_LOGIN",
+      "details": "User logged in from 172.18.0.1.",
+      "timestamp": "2026-09-01T13:38:58.029Z"
     }
   ],
   "campaigns": [
