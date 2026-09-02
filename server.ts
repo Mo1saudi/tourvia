@@ -1,52 +1,9 @@
-import express, { Request, Response, NextFunction } from 'express';
 import path from 'path';
-import cookieParser from 'cookie-parser';
-
-import { authRouter } from './server/routes/auth';
-import { tripsRouter } from './server/routes/trips';
-import { publicRouter } from './server/routes/public';
-import { aiRouter } from './server/routes/ai';
-import { subscriptionsRouter } from './server/routes/subscriptions';
-import { adminRouter } from './server/routes/admin';
-import { analyticsRouter } from './server/routes/analytics';
+import { createApiApp } from './server/app';
 
 async function startServer() {
-  const app = express();
-  const PORT = 3000;
-
-  // Middlewares
-  app.use(express.json({ limit: '10mb' }));
-  app.use(express.urlencoded({ extended: true, limit: '10mb' }));
-  app.use(cookieParser());
-
-  // API Routes
-  app.use('/api/auth', authRouter);
-  app.use('/api/trips', tripsRouter);
-  app.use('/api/public', publicRouter);
-  app.use('/api/ai', aiRouter);
-  app.use('/api/subscriptions', subscriptionsRouter);
-  app.use('/api/admin', adminRouter);
-  app.use('/api', analyticsRouter);
-
-  // Health check
-  app.get('/api/health', (req: Request, res: Response) => {
-    res.json({
-      status: 'ok',
-      service: 'TOURVIA Full-Stack AI SaaS API',
-      timestamp: new Date().toISOString(),
-    });
-  });
-
-  // Global Error Handler for API routes
-  app.use((err: any, req: Request, res: Response, next: NextFunction) => {
-    console.error('Unhandled server error:', err);
-    if (res.headersSent) {
-      return next(err);
-    }
-    res.status(err.status || 500).json({
-      error: err.message || 'Internal Server Error',
-    });
-  });
+  const app = createApiApp();
+  const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : 3000;
 
   // Vite middleware for development vs static build in production
   if (process.env.NODE_ENV !== 'production') {
@@ -59,7 +16,7 @@ async function startServer() {
   } else {
     const distPath = path.join(process.cwd(), 'dist');
     app.use(express.static(distPath));
-    app.get('*', (req: Request, res: Response) => {
+    app.get('*', (req: any, res: any) => {
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }

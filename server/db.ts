@@ -24,7 +24,12 @@ import {
   HomepageCustomStats,
 } from '../src/types';
 
-const DATA_DIR = path.join(process.cwd(), 'data');
+// On Vercel the deployed filesystem is read-only at runtime (only /tmp is
+// writable), so the live DB file must live in /tmp. We seed it on cold start
+// from the committed data/tourvia_db.json so existing users/trips are kept.
+const IS_VERCEL = !!process.env.VERCEL;
+const SOURCE_DB_FILE = path.join(process.cwd(), 'data', 'tourvia_db.json');
+const DATA_DIR = IS_VERCEL ? '/tmp' : path.join(process.cwd(), 'data');
 const DB_FILE = path.join(DATA_DIR, 'tourvia_db.json');
 
 export interface DatabaseSchema {
@@ -698,6 +703,17 @@ class Database {
 
   constructor() {
     ensureDataDirectory();
+
+    // On Vercel, seed the writable /tmp DB from the committed read-only file
+    // on cold starts so existing data (users, trips, ...) is preserved.
+    if (IS_VERCEL && !fs.existsSync(DB_FILE) && fs.existsSync(SOURCE_DB_FILE)) {
+      try {
+        fs.copyFileSync(SOURCE_DB_FILE, DB_FILE);
+      } catch (err) {
+        console.warn('Could not seed DB from source, starting fresh:', err);
+      }
+    }
+
     if (fs.existsSync(DB_FILE)) {
       try {
         const raw = fs.readFileSync(DB_FILE, 'utf-8');
