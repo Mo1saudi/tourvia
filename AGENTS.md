@@ -25,6 +25,14 @@ docker compose -f docker-compose.base44.yml up -d
 - Frontend calls the API via **relative `/api/...` paths** (single origin) — no API URL env var needed.
 - Default admin login: `mohamedseo2002@gmail.com` / PIN `123456` (and `admin@tourvia.app` / `123456`).
 
+## Vercel Deployment
+The app deploys to Vercel as a hybrid: the built frontend (`dist/`) is served as static assets, and the Express API runs as a single serverless function.
+
+- **`api/index.ts`** — Vercel serverless entry. Imports `createApiApp()` from `server/app.ts` and exports the Express app as the default handler. Vercel auto-detects `@vercel/node` for `.ts` files in `api/`.
+- **`server/app.ts`** — shared `createApiApp()` that wires all `/api/*` routes + error handler. Used by both `server.ts` (dev/standalone) and `api/index.ts` (Vercel). Static/Vite serving is added only by `server.ts`.
+- **`vercel.json`** — `buildCommand: npm run build`, `outputDirectory: dist`, rewrites: `/api/(.*)` → `/api` (the function), everything else → `/index.html` (SPA fallback). Static files in `dist/` are served by Vercel's CDN before rewrites apply.
+- **DB on Vercel:** the deployed filesystem is read-only at runtime (only `/tmp` is writable). `server/db.ts` detects `process.env.VERCEL` and uses `/tmp/tourvia_db.json` as the live DB, seeded on cold start from the committed `data/tourvia_db.json`. Sessions/data persist only within a warm serverless instance — for production multi-instance durability this should be replaced with a real DB (Vercel Postgres/KV).
+
 ## Verifying it works
 ```
 curl -sf -H "Host: external-preview.example.com" http://localhost:3000/            # 200, HTML
