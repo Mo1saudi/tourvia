@@ -70,10 +70,6 @@ class ApiService {
   }
 
   // Auth
-  public async getMathChallenge(): Promise<{ challengeId: string; question: string }> {
-    return this.request('/api/auth/math-challenge');
-  }
-
   public async register(payload: any): Promise<{ user: User; token: string; recoveryCode: string; subscription: UserSubscription; aiUsage: AiUsageData }> {
     const res = await this.request<any>('/api/auth/register', {
       method: 'POST',
