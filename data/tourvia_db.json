@@ -108,6 +108,10 @@
     "sess_32d3d9b1d6ba132a0ddac7a87aeb8eae": {
       "userId": "usr_g_26ae7f718ce196ef47a0bd5914d58b72",
       "expiresAt": 1790935456834
+    },
+    "sess_94f9244f41b25ca6beca9c77e3b3c017": {
+      "userId": "usr_admin_mohamed",
+      "expiresAt": 1790935690337
     }
   },
   "trips": [],
@@ -487,6 +491,14 @@
       "action": "USER_REGISTER",
       "details": "New guide account registered with 3 free lifetime AI programs.",
       "timestamp": "2026-09-02T10:04:16.834Z"
+    },
+    {
+      "id": "log_l_2f9cbee5fb4104b108e4afc2b3e58895",
+      "userId": "usr_admin_mohamed",
+      "userEmail": "mohamedseo2002@gmail.com",
+      "action": "USER_LOGIN",
+      "details": "User logged in from 10.12.0.82.",
+      "timestamp": "2026-09-02T10:08:10.337Z"
     }
   ],
   "campaigns": [
