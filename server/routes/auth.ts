@@ -7,8 +7,6 @@ import {
   generateSecureToken,
 } from '../db';
 import {
-  generateMathChallenge,
-  verifyMathChallenge,
   createSession,
   authMiddleware,
   AuthenticatedRequest,
@@ -17,13 +15,7 @@ import { User, WorkingLanguage } from '../../src/types';
 
 export const authRouter = Router();
 
-// 1. Math Challenge Endpoint
-authRouter.get('/math-challenge', (req: Request, res: Response) => {
-  const challenge = generateMathChallenge();
-  res.json({ challengeId: challenge.id, question: challenge.question });
-});
-
-// 2. Register
+// 1. Register
 authRouter.post('/register', (req: Request, res: Response) => {
   const {
     name,
@@ -36,19 +28,7 @@ authRouter.post('/register', (req: Request, res: Response) => {
     companyName,
     companyTagline,
     companyBrandColor,
-    mathChallengeId,
-    mathAnswer,
   } = req.body;
-
-  // Validate Math Challenge
-  if (!verifyMathChallenge(mathChallengeId, mathAnswer)) {
-    res.status(400).json({
-      error: 'SECURITY_CHALLENGE_FAILED',
-      message: 'Math verification failed or expired. Please solve the new challenge.',
-      newChallenge: generateMathChallenge(),
-    });
-    return;
-  }
 
   // Validate Required Fields
   if (!name || !email || !phone || !pin) {
@@ -161,17 +141,7 @@ authRouter.post('/register', (req: Request, res: Response) => {
 // 3. Login
 authRouter.post('/login', (req: Request, res: Response) => {
   try {
-    const { identifier, pin, mathChallengeId, mathAnswer, rememberDevice } = req.body;
-
-    // Validate Math Challenge
-    if (!verifyMathChallenge(mathChallengeId, mathAnswer)) {
-      res.status(400).json({
-        error: 'SECURITY_CHALLENGE_FAILED',
-        message: 'التحقق الأمني فشل أو انتهت صلاحيته. يرجى حل المسألة الجديدة.',
-        newChallenge: generateMathChallenge(),
-      });
-      return;
-    }
+    const { identifier, pin, rememberDevice } = req.body;
 
     if (!identifier || !pin) {
       res.status(400).json({ error: 'يرجى إدخال البريد الإلكتروني أو الهاتف والرمز السري.' });

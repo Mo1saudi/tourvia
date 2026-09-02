@@ -1,65 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
-import crypto from 'crypto';
 import { db, saveDb, hashPin, generateSecureToken } from './db';
 import { User } from '../src/types';
-
-// In-memory math challenges with 3-minute expiration
-interface MathChallenge {
-  id: string;
-  question: string;
-  answer: number;
-  expiresAt: number;
-}
-
-const activeChallenges: Record<string, MathChallenge> = {};
-
-// Clean up expired math challenges periodically
-setInterval(() => {
-  const now = Date.now();
-  Object.keys(activeChallenges).forEach(id => {
-    if (activeChallenges[id].expiresAt < now) {
-      delete activeChallenges[id];
-    }
-  });
-}, 60000);
-
-export function generateMathChallenge(): { id: string; question: string } {
-  const num1 = Math.floor(Math.random() * 12) + 2;
-  const num2 = Math.floor(Math.random() * 12) + 1;
-  const isAddition = Math.random() > 0.3;
-
-  const question = isAddition ? `${num1} + ${num2} = ?` : `${num1 + num2} - ${num1} = ?`;
-  const answer = isAddition ? num1 + num2 : num2;
-  const id = `mc_${crypto.randomBytes(8).toString('hex')}`;
-
-  activeChallenges[id] = {
-    id,
-    question,
-    answer,
-    expiresAt: Date.now() + 3 * 60 * 1000, // 3 minutes
-  };
-
-  return { id, question };
-}
-
-export function verifyMathChallenge(id: string, userAnswer: number | string): boolean {
-  if (!id || !activeChallenges[id]) return false;
-  const challenge = activeChallenges[id];
-
-  if (Date.now() > challenge.expiresAt) {
-    delete activeChallenges[id];
-    return false;
-  }
-
-  // Normalize user answer (handles Arabic numbers too)
-  const normalizedStr = String(userAnswer).replace(/[٠-٩]/g, d => '0123456789'['٠١٢٣٤٥٦٧٨٩'.indexOf(d)]);
-  const parsedNum = parseInt(normalizedStr, 10);
-  const isValid = parsedNum === challenge.answer;
-
-  // Single-use challenge: delete immediately
-  delete activeChallenges[id];
-  return isValid;
-}
 
 export interface AuthenticatedRequest extends Request {
   user?: User;

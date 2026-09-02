@@ -18,7 +18,6 @@ import {
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../i18n/LanguageContext';
 import { api } from '../services/api';
-import { MathChallengeModal } from '../components/MathChallengeModal';
 import { TourviaLogo } from '../components/TourviaLogo';
 import { ProofDocumentUploader } from '../components/ProofDocumentUploader';
 import { WorkingLanguage } from '../types';
@@ -36,10 +35,6 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
   const [error, setError] = useState<string>('');
   const [successMsg, setSuccessMsg] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
-
-  // Math Challenge State
-  const [isMathModalOpen, setIsMathModalOpen] = useState<boolean>(false);
-  const [pendingAction, setPendingAction] = useState<'login' | 'register' | null>(null);
 
   // Registration Generated Recovery Code Modal
   const [generatedRecoveryCode, setGeneratedRecoveryCode] = useState<string | null>(null);
@@ -73,18 +68,26 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
     }
   };
 
-  const handleTriggerLogin = (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     if (!identifier || !pin) {
       setError('يرجى إدخال البريد الإلكتروني أو الهاتف والرمز السري.');
       return;
     }
-    setPendingAction('login');
-    setIsMathModalOpen(true);
+    setIsLoading(true);
+    try {
+      const res = await api.login({ identifier, pin, rememberDevice });
+      login(res);
+      onNavigate('dashboard');
+    } catch (err: any) {
+      setError(err.message || 'فشل تسجيل الدخول، يرجى المحاولة مرة أخرى.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleTriggerRegister = (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setError('');
     if (!name || !email || !phone || !pin) {
@@ -95,45 +98,23 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
       setError('يجب أن يتكون الرمز السري من 6 أرقام بالضبط.');
       return;
     }
-    setPendingAction('register');
-    setIsMathModalOpen(true);
-  };
-
-  const handleMathSuccess = async (challengeId: string, answer: number) => {
-    setIsMathModalOpen(false);
     setIsLoading(true);
-    setError('');
-
     try {
-      if (pendingAction === 'login') {
-        const res = await api.login({
-          identifier,
-          pin,
-          mathChallengeId: challengeId,
-          mathAnswer: answer,
-          rememberDevice,
-        });
-        login(res);
-        onNavigate('dashboard');
-      } else if (pendingAction === 'register') {
-        const res = await api.register({
-          name,
-          email,
-          phone,
-          pin,
-          accountType,
-          workingLanguages: selectedLanguages,
-          proofDocumentUrl,
-          companyName: accountType === 'company' ? companyName : undefined,
-          companyTagline: accountType === 'company' ? companyTagline : undefined,
-          mathChallengeId: challengeId,
-          mathAnswer: answer,
-        });
-        login(res);
-        setGeneratedRecoveryCode(res.recoveryCode);
-      }
+      const res = await api.register({
+        name,
+        email,
+        phone,
+        pin,
+        accountType,
+        workingLanguages: selectedLanguages,
+        proofDocumentUrl,
+        companyName: accountType === 'company' ? companyName : undefined,
+        companyTagline: accountType === 'company' ? companyTagline : undefined,
+      });
+      login(res);
+      setGeneratedRecoveryCode(res.recoveryCode);
     } catch (err: any) {
-      setError(err.message || 'فشلت العملية، يرجى المحاولة مرة أخرى.');
+      setError(err.message || 'فشل التسجيل، يرجى المحاولة مرة أخرى.');
     } finally {
       setIsLoading(false);
     }
@@ -250,7 +231,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
 
           {/* LOGIN FORM */}
           {mode === 'login' && (
-            <form onSubmit={handleTriggerLogin} className="space-y-4">
+            <form onSubmit={handleLogin} className="space-y-4">
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300">
                   {t('emailOrPhone')}
@@ -337,7 +318,7 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
 
           {/* REGISTER FORM */}
           {mode === 'register' && (
-            <form onSubmit={handleTriggerRegister} className="space-y-4">
+            <form onSubmit={handleRegister} className="space-y-4">
               {/* Account Type Toggle */}
               <div>
                 <label className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1">
@@ -571,12 +552,6 @@ export const AuthView: React.FC<AuthViewProps> = ({ initialMode = 'login', onNav
         </div>
       </div>
 
-      {/* Security Math Challenge Modal */}
-      <MathChallengeModal
-        isOpen={isMathModalOpen}
-        onSuccess={handleMathSuccess}
-        onCancel={() => setIsMathModalOpen(false)}
-      />
     </div>
   );
 };
