@@ -43,6 +43,13 @@ export const MathChallengeModal: React.FC<MathChallengeModalProps> = ({
   useEffect(() => {
     if (isOpen) {
       fetchChallenge();
+    } else {
+      // Clear stale challenge data when the modal closes, so a re-open
+      // never shows the previous (already-consumed) question/answer.
+      setChallengeId('');
+      setQuestion('');
+      setUserAnswer('');
+      setError('');
     }
   }, [isOpen]);
 

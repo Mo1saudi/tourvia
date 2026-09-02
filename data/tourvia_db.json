@@ -49,13 +49,32 @@
       "companyBrandColor": "#f59e0b",
       "createdAt": "2026-09-02T09:49:04.872Z",
       "updatedAt": "2026-09-02T09:49:04.872Z"
+    },
+    {
+      "id": "usr_g_26ae7f718ce196ef47a0bd5914d58b72",
+      "name": "Verify Test",
+      "email": "verifytest@example.com",
+      "phone": "+201991112233",
+      "accountType": "guide",
+      "workingLanguages": [
+        "ar",
+        "en"
+      ],
+      "verificationStatus": "PENDING_VERIFICATION",
+      "proofDocumentUrl": "",
+      "recoveryCode": "TRV-1AFB3B9E-4538984A",
+      "role": "user",
+      "companyBrandColor": "#f59e0b",
+      "createdAt": "2026-09-02T10:04:16.834Z",
+      "updatedAt": "2026-09-02T10:04:16.834Z"
     }
   ],
   "userPins": {
     "usr_admin_mohamed": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87",
     "usr_admin_master": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87",
     "usr_guide_tamer": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87",
-    "usr_g_ba2d53674c35f9b53eeba2bb7c6b79d6": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87"
+    "usr_g_ba2d53674c35f9b53eeba2bb7c6b79d6": "bb50ea81b1a9cd50a97f37a5030d87cf7c5e1501a6887864ec165aa4453d9c87",
+    "usr_g_26ae7f718ce196ef47a0bd5914d58b72": "e3e13ce9cd72e60f06b2157e8211f181b83c3140d19d58166b62c36c8fe87f2b"
   },
   "sessions": {
     "sess_10f922d7b9d54f6009e87e5591a9a7b5": {
@@ -77,6 +96,18 @@
     "sess_ad86277323229306b17c7e00d63f4dbd": {
       "userId": "usr_g_ba2d53674c35f9b53eeba2bb7c6b79d6",
       "expiresAt": 1790934544873
+    },
+    "sess_02933288f4b88c9a3747d27cce29137d": {
+      "userId": "usr_admin_mohamed",
+      "expiresAt": 1790935185888
+    },
+    "sess_a87b677ad364aee90c78ba05b2de99f6": {
+      "userId": "usr_admin_mohamed",
+      "expiresAt": 1790935456829
+    },
+    "sess_32d3d9b1d6ba132a0ddac7a87aeb8eae": {
+      "userId": "usr_g_26ae7f718ce196ef47a0bd5914d58b72",
+      "expiresAt": 1790935456834
     }
   },
   "trips": [],
@@ -111,6 +142,15 @@
       "message": "تم إنشاء حسابك بنجاح. لقد حصلت على 3 برامج سياحية بالذكاء الاصطناعي مجانًا مدى الحياة لتجربة المنصة.",
       "isRead": false,
       "createdAt": "2026-09-02T09:49:04.872Z"
+    },
+    {
+      "id": "notif_n_45f07723f5ce7a5df22922e94a727c48",
+      "userId": "usr_g_26ae7f718ce196ef47a0bd5914d58b72",
+      "type": "SYSTEM",
+      "title": "مرحبًا بك في TOURVIA!",
+      "message": "تم إنشاء حسابك بنجاح. لقد حصلت على 3 برامج سياحية بالذكاء الاصطناعي مجانًا مدى الحياة لتجربة المنصة.",
+      "isRead": false,
+      "createdAt": "2026-09-02T10:04:16.834Z"
     }
   ],
   "plans": [
@@ -287,6 +327,16 @@
       "startDate": "2026-09-02T09:49:04.872Z",
       "amountPaid": 0,
       "currency": "EGP"
+    },
+    {
+      "id": "sub_s_2e71502c556afc15894ac46a530bc8e5",
+      "userId": "usr_g_26ae7f718ce196ef47a0bd5914d58b72",
+      "planId": "plan_free",
+      "planCode": "FREE",
+      "status": "ACTIVE",
+      "startDate": "2026-09-02T10:04:16.834Z",
+      "amountPaid": 0,
+      "currency": "EGP"
     }
   ],
   "paymentRequests": [],
@@ -334,6 +384,14 @@
     },
     "usr_g_ba2d53674c35f9b53eeba2bb7c6b79d6": {
       "userId": "usr_g_ba2d53674c35f9b53eeba2bb7c6b79d6",
+      "lifetimeUsed": 0,
+      "lifetimeLimit": 3,
+      "currentPlanAiLimit": 3,
+      "isUnlimited": false,
+      "history": []
+    },
+    "usr_g_26ae7f718ce196ef47a0bd5914d58b72": {
+      "userId": "usr_g_26ae7f718ce196ef47a0bd5914d58b72",
       "lifetimeUsed": 0,
       "lifetimeLimit": 3,
       "currentPlanAiLimit": 3,
@@ -405,6 +463,30 @@
       "action": "USER_REGISTER",
       "details": "New guide account registered with 3 free lifetime AI programs.",
       "timestamp": "2026-09-02T09:49:04.872Z"
+    },
+    {
+      "id": "log_l_c11e12d69a0b5be050b7fa255b8d2a8a",
+      "userId": "usr_admin_mohamed",
+      "userEmail": "mohamedseo2002@gmail.com",
+      "action": "USER_LOGIN",
+      "details": "User logged in from 10.12.0.82.",
+      "timestamp": "2026-09-02T09:59:45.889Z"
+    },
+    {
+      "id": "log_l_5563aaede57d29e1d7ebf2964c56473d",
+      "userId": "usr_admin_mohamed",
+      "userEmail": "mohamedseo2002@gmail.com",
+      "action": "USER_LOGIN",
+      "details": "User logged in from 172.18.0.1.",
+      "timestamp": "2026-09-02T10:04:16.830Z"
+    },
+    {
+      "id": "log_l_dc5e32a9fdb39e9c1d709a5ec8e96d5f",
+      "userId": "usr_g_26ae7f718ce196ef47a0bd5914d58b72",
+      "userEmail": "verifytest@example.com",
+      "action": "USER_REGISTER",
+      "details": "New guide account registered with 3 free lifetime AI programs.",
+      "timestamp": "2026-09-02T10:04:16.834Z"
     }
   ],
   "campaigns": [
